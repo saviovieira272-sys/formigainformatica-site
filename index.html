@@ -87,7 +87,7 @@
 
     /* HEADER INTERATIVO */
     header{
-      height:130px;
+      height:180px; /* altura ajustada */
       display:flex;
       align-items:center;
       justify-content:center;
@@ -101,12 +101,15 @@
     }
 
     header.hidden{
-      top:-130px;
+      top:-180px;
       background:rgba(0,0,0,0);
       border:none;
     }
 
-    header img{max-height:430px;}
+    header img{
+      max-height:160px; /* cabe perfeitamente dentro do header */
+      height:auto;
+    }
 
     /* HERO */
     .hero{position:relative;height:90vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
@@ -156,7 +159,12 @@
     /* WHATSAPP */
     .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#000;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
 
-    @media(max-width:768px){header{height:110px}header img{max-height:100px}.hero-content h2{font-size:30px}.menu-lateral{display:none}}
+    @media(max-width:768px){
+      header{height:140px}
+      header img{max-height:120px}
+      .hero-content h2{font-size:30px}
+      .menu-lateral{display:none}
+    }
   </style>
 </head>
 <body>
@@ -170,9 +178,11 @@
   <a href="#dev"><i class="fas fa-code"></i>Sites</a>
   <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
+
 <header id="header">
-  <img src="logobrancavert.png" alt="Formiga Informática" style="height:430px;">
+  <img src="logobrancavert.png" alt="Formiga Informática">
 </header>
+
 <section class="hero">
   <video autoplay muted loop><source src="video-informatica.mp4" type="video/mp4"></video>
   <div class="hero-content"><h2>Tecnologia que resolve</h2><p>Soluções completas em informática</p></div>
