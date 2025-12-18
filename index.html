@@ -5,161 +5,203 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Formiga Informática</title>
 
+<!-- Fontes e Ícones -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-  body{background:#000;color:#fff;overflow-x:hidden}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#000;color:#fff;overflow-x:hidden}
 
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-    opacity:.25;
-    z-index:-1
-  }
+/* TEXTURA DE FUNDO */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  opacity:.25;
+  z-index:-1
+}
 
-  /* MENU LATERAL */
-  .menu-lateral{
-    position:fixed;
-    top:50%;left:15px;
-    transform:translateY(-50%);
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    z-index:500; /* menor que header */
-    transition:opacity .5s ease, transform .5s ease
-  }
-  .menu-lateral.hide{
-    opacity:0;
-    transform:translate(-15px,-50%);
-    pointer-events:none
-  }
-  .menu-lateral a{
-    color:#000;
-    text-decoration:none;
-    padding:10px 18px 10px 16px;
-    width:fit-content;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    border:1px solid rgba(255,255,255,0.55);
-    border-radius:30px;
-    font-size:14px;
-    font-weight:700;
-    background:rgba(255,255,255,0.72);
-    backdrop-filter:blur(8px);
-    transition:.55s cubic-bezier(0.22,1,0.36,1)
-  }
-  .menu-lateral a:hover{
-    padding-right:42px;
-    background:rgba(255,255,255,0.95);
-    box-shadow:0 10px 26px rgba(255,255,255,.35);
-    transform:translateX(6px)
-  }
-  .menu-lateral a.active{
-    background:#fff;
-    box-shadow:0 0 0 2px rgba(255,255,255,.9), 0 10px 28px rgba(255,255,255,.45)
-  }
+/* MENU LATERAL */
+.menu-lateral{
+  position:fixed;
+  top:50%;left:15px;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:1000;
+  transition:opacity .5s ease, transform .5s ease
+}
 
-  /* HEADER */
-  header{
-    height:130px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-bottom:1px solid rgba(255,255,255,0.3);
-    background:rgba(255,255,255,0.85);
-    clip-path:ellipse(60% 100% at 50% 0%);
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-    z-index:1000; /* maior que menu */
-    transition:top 0.5s ease, background 0.5s ease, opacity 0.5s ease;
-  }
-  header.hide{
-    top:-140px;
-    background:rgba(255,255,255,0.3);
-    opacity:0;
-  }
-  .logo-header{
-    width:160px;
-    height:60px;
-    background:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:10px;
-  }
+.menu-lateral.hide{
+  opacity:0;
+  transform:translate(-15px,-50%);
+  pointer-events:none
+}
 
-  /* HERO */
-  .hero{position:relative;height:90vh;overflow:hidden;margin-top:130px;margin-left:80px} /* espaço p/ menu */
-  .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.85));z-index:1}
-  .hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-  .hero-content h2{font-size:42px;margin-bottom:10px;color:#000;background:rgba(255,255,255,0.92);padding:14px 26px;border-radius:999px;box-shadow:0 0 25px rgba(255,255,255,.35)}
-  .hero-content p{margin-top:12px;font-weight:500;opacity:.85}
+.menu-lateral a{
+  color:#000;
+  text-decoration:none;
+  padding:10px 18px 10px 16px;
+  width:fit-content;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid rgba(255,255,255,0.55);
+  border-radius:30px;
+  font-size:14px;
+  font-weight:700;
+  background:rgba(255,255,255,0.72);
+  backdrop-filter:blur(8px);
+  transition:.55s cubic-bezier(0.22,1,0.36,1)
+}
 
-  /* SERVIÇOS */
-  .servicos{padding:80px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;justify-items:center;margin-left:80px}
-  .servico{border:1px solid #fff;padding:30px;text-align:center;transition:.4s;cursor:pointer;text-decoration:none;color:#fff;display:flex;flex-direction:column;align-items:center;}
-  .servico i{font-size:40px;margin-bottom:15px}
-  .servico:hover{transform:scale(1.06);box-shadow:0 0 25px rgba(255,255,255,.35)}
+.menu-lateral a:hover{
+  padding-right:42px;
+  background:rgba(255,255,255,0.95);
+  box-shadow:0 10px 26px rgba(255,255,255,.35);
+  transform:translateX(6px)
+}
 
-  /* PRODUTOS */
-  .produtos{padding:80px 8%;margin-left:80px}
-  .produtos h2{text-align:center;margin-bottom:40px}
-  .produtos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
-  .produto{border:1px solid #fff;padding:20px;transition:.3s}
-  .produto:hover{transform:scale(1.04)}
-  .produto img{width:100%;height:160px;background:#111;margin-bottom:10px}
+.menu-lateral a.active{
+  background:#fff;
+  box-shadow:0 0 0 2px rgba(255,255,255,.9), 0 10px 28px rgba(255,255,255,.45)
+}
 
-  /* QUEM SOMOS */
-  .quem-somos{padding:80px 8%;display:flex;justify-content:center;margin-left:80px}
-  .quem-box{max-width:800px;background:rgba(0,0,0,.7);border:1px solid #fff;padding:40px;line-height:1.7}
+/* HEADER TRANSPARENTE INTERATIVO */
+header{
+  height:130px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid rgba(255,255,255,0.6);
+  background:rgba(0,0,0,0.8);
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  transition:top .4s, background .4s;
+  z-index:999;
+}
+header.hide{
+  top:-150px;
+}
 
-  /* CRIAÇÃO DE SITES */
-  .dev{padding:80px 8%;border-top:1px solid #fff;display:flex;flex-direction:column;align-items:center;margin-left:80px}
-  .dev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;justify-items:center;width:100%;max-width:900px}
-  .dev-item{border:1px solid #fff;padding:20px;text-align:center}
-  .btn-dev{display:inline-block;margin-top:30px;padding:14px 34px;background:rgba(255,255,255,0.9);color:#000;border-radius:40px;text-decoration:none;font-weight:600;transition:.3s}
-  .btn-dev:hover{background:#fff;box-shadow:0 0 20px rgba(255,255,255,.6);transform:scale(1.05)}
+/* HERO */
+.hero{position:relative;height:90vh;overflow:hidden;margin-top:130px;}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.85));z-index:1}
+.hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hero-content h2{font-size:42px;margin-bottom:10px;color:#fff;background:rgba(0,0,0,0.6);padding:14px 26px;border-radius:999px;box-shadow:0 0 25px rgba(255,255,255,.15)}
+.hero-content p{margin-top:12px;font-weight:500;opacity:.85}
 
-  /* IMPACT SYSTEM */
-  .impact-logo{width:160px;height:60px;background:#fff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center}
+/* SERVIÇOS */
+.servicos{ 
+  padding:80px 8%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+  justify-items:center;
+  margin-left:80px;
+}
+.servico{
+  border:1px solid #fff;
+  padding:30px;
+  text-align:center;
+  transition:.4s;
+  cursor:pointer;
+  text-decoration:none;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:200px;
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
+}
+.servico i{font-size:40px;margin-bottom:15px}
+.servico:hover{
+  transform:scale(1.06);
+  box-shadow:0 0 25px rgba(255,255,255,.35);
+  background:rgba(255,255,255,0.15);
+}
 
-  .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
+/* PRODUTOS */
+.produtos{padding:80px 8%}
+.produtos h2{text-align:center;margin-bottom:40px}
+.produtos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
+.produto{border:1px solid #fff;padding:20px;transition:.3s;text-align:center;background:rgba(255,255,255,0.05);border-radius:12px;}
+.produto:hover{transform:scale(1.04)}
+.produto img{width:100%;height:160px;background:#111;margin-bottom:10px}
 
-  footer{border-top:1px solid rgba(255,255,255,.6);padding:40px 8%;text-align:center;background:#000}
+/* QUEM SOMOS */
+.quem-somos{padding:80px 8%;display:flex;justify-content:center}
+.quem-box{max-width:800px;background:rgba(0,0,0,.7);border:1px solid #fff;padding:40px;line-height:1.7;border-radius:12px}
 
-  @media(max-width:768px){
-    header{height:110px}
-    .hero{margin-top:110px;margin-left:0}
-    .menu-lateral{display:none}
-    .hero-content h2{font-size:30px}
-    .servicos,.produtos,.quem-somos,.dev{margin-left:0}
-  }
+/* DESENVOLVIMENTO DE SITES */
+.dev{padding:80px 8%;border-top:1px solid #fff;text-align:center}
+.dev-grid{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;}
+.dev-item{border:1px solid #fff;padding:20px;flex:1 1 260px;min-width:260px;max-width:300px;background:rgba(255,255,255,0.05);border-radius:12px;transition:.3s}
+.dev-item:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(255,255,255,.3)}
+.btn-dev{display:inline-block;margin-top:30px;padding:14px 34px;background:rgba(255,255,255,0.9);color:#000;border-radius:40px;text-decoration:none;font-weight:600;transition:.3s}
+.btn-dev:hover{background:#fff;box-shadow:0 0 20px rgba(255,255,255,.6);transform:scale(1.05)}
+
+/* IMPACT SYSTEM */
+.impact{padding:80px 8%;border-top:1px solid #fff;text-align:center}
+.impact h2{margin-bottom:40px}
+.impact-box{border:1px solid #fff;padding:40px;background:rgba(255,255,255,0.05);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:150px;transition:.3s}
+.impact-box:hover{background:rgba(255,255,255,0.15);transform:scale(1.03);box-shadow:0 0 20px rgba(255,255,255,.25)}
+.impact-logo{width:120px;height:60px;background:#111;margin-bottom:15px;}
+
+/* WHATSAPP */
+.whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
+
+footer{border-top:1px solid rgba(255,255,255,.6);padding:40px 8%;text-align:center;background:#000}
+
+@media(max-width:768px){
+  header{height:110px}
+  .hero-content h2{font-size:30px}
+  .menu-lateral{display:none}
+  .dev-grid{flex-direction:column;align-items:center}
+}
 </style>
 </head>
 <body>
+
+<script>
+  // MENU LATERAL
+  let lastScroll = 0;
+  const menu = document.querySelector('.menu-lateral');
+  const header = document.querySelector('header');
+
+  window.addEventListener('scroll',()=>{
+    const current = window.scrollY;
+
+    // Hide menu on scroll down
+    if(current > lastScroll && current > 150){
+      menu.classList.add('hide');
+      header.classList.add('hide');
+    } else {
+      menu.classList.remove('hide');
+      header.classList.remove('hide');
+    }
+    lastScroll = current;
+  });
+</script>
 
 <div class="menu-lateral">
   <a href="#inicio"><i class="fas fa-home"></i>Início</a>
   <a href="#servicos"><i class="fas fa-tools"></i>Serviços</a>
   <a href="#produtos"><i class="fas fa-box"></i>Produtos</a>
   <a href="#quem"><i class="fas fa-users"></i>Quem Somos</a>
-  <a href="#dev"><i class="fas fa-code"></i>Sites</a>
-  <a href="#impact"><i class="fas fa-building"></i>Impact System</a>
+  <a href="#dev"><i class="fas fa-code"></i>Criação Sites</a>
+  <a href="#impact"><i class="fas fa-cogs"></i>Impact System</a>
 </div>
 
-<header id="inicio">
-  <div class="logo-header">
-    <!-- Espaço para logo -->
-  </div>
-</header>
+<header id="inicio"><!-- Espaço para logo --></header>
 
 <section class="hero">
   <video autoplay muted loop><source src="video-informatica.mp4" type="video/mp4"></video>
@@ -167,17 +209,17 @@
 </section>
 
 <section id="servicos" class="servicos">
-  <a class="servico" href="#"><i class="fab fa-windows"></i><h3>Formatações</h3></a>
-  <a class="servico" href="#"><i class="fas fa-house-laptop"></i><h3>Visita Técnica</h3></a>
-  <a class="servico" href="#"><i class="fas fa-download"></i><h3>Instalação de Programas</h3></a>
-  <a class="servico" href="#"><i class="fas fa-tools"></i><h3>Conserto de Computadores</h3></a>
-  <a class="servico" href="#"><i class="fas fa-laptop"></i><h3>Reparo de Carcaças</h3></a>
-  <a class="servico" href="#"><i class="fas fa-microchip"></i><h3>Reparo de Placas</h3></a>
-  <a class="servico" href="#"><i class="fas fa-store"></i><h3>Venda de Computadores</h3></a>
-  <a class="servico" href="#"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3></a>
-  <a class="servico" href="#"><i class="fas fa-print"></i><h3>Tintas e Toner</h3></a>
-  <a class="servico" href="#"><i class="fas fa-plug"></i><h3>Eletrônicos</h3></a>
-  <a class="servico" href="#"><i class="fas fa-globe"></i><h3>Criação de Sites</h3></a>
+  <a href="https://wa.me/5537999365150" class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3></a>
+  <a href="https://wa.me/5537999365150" class="servico"><i class="fas fa-house-laptop"></i><h3>Visita Técnica</h3></a>
+  <a href="https://wa.me/5537999365150" class="servico"><i class="fas fa-download"></i><h3>Instalação de Programas</h3></a>
+  <a href="https://wa.me/5537999365150" class="servico"><i class="fas fa-tools"></i><h3>Conserto de Computadores</h3></a>
+  <a href="https://wa.me/5537999365150" class="servico"><i class="fas fa-laptop"></i><h3>Reparo de Carcaças</h3></a>
+  <a href="https://wa.me/5537999365150" class="servico"><i class="fas fa-microchip"></i><h3>Reparo de Placas</h3></a>
+  <a href="https://wa.me/5537999365150" class="servico"><i class="fas fa-store"></i><h3>Venda de Computadores</h3></a>
+  <a href="https://wa.me/5537999365150" class="servico"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3></a>
+  <a href="https://wa.me/5537999365150" class="servico"><i class="fas fa-print"></i><h3>Tintas e Toner</h3></a>
+  <a href="https://wa.me/5537999365150" class="servico"><i class="fas fa-plug"></i><h3>Eletrônicos</h3></a>
+  <a href="https://wa.me/5537999365150" class="servico"><i class="fas fa-globe"></i><h3>Criação de Sites</h3></a>
 </section>
 
 <section id="produtos" class="produtos">
@@ -201,45 +243,27 @@
 <section id="dev" class="dev">
   <h2>Criação de Sites e Sistemas</h2>
   <div class="dev-grid">
-    <div class="dev-item">Sites Institucionais</div>
-    <div class="dev-item">Lojas Virtuais</div>
-    <div class="dev-item">Sistemas Empresariais</div>
+    <a href="https://wa.me/5537999365150" class="dev-item">Sites Institucionais</a>
+    <a href="https://wa.me/5537999365150" class="dev-item">Lojas Virtuais</a>
+    <a href="https://wa.me/5537999365150" class="dev-item">Sistemas Empresariais</a>
   </div>
-  <a href="#" class="btn-dev">Solicitar Orçamento</a>
+  <a href="https://wa.me/5537999365150" class="btn-dev">Solicitar Orçamento</a>
 </section>
 
-<section id="impact" class="dev">
-  <div class="impact-logo"></div>
+<section id="impact" class="impact">
   <h2>Impact System</h2>
-  <div class="dev-grid">
-    <div class="dev-item">Sistemas de Gestão</div>
+  <div class="impact-box">
+    <div class="impact-logo"></div>
+    <p>Espaço para logo e informações da Impact System</p>
   </div>
-  <a href="#" class="btn-dev">Falar com Impact</a>
 </section>
 
-<a class="whatsapp" href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a class="whatsapp" href="https://wa.me/5537999365150" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <footer>
   <p>Rua Quintino Bocaiúva, 105 – Centro – Formiga/MG</p>
   <p>Formiga Informática • Tecnologia que trabalha a favor do seu dia a dia</p>
 </footer>
 
-<script>
-const menu = document.querySelector('.menu-lateral');
-const header = document.querySelector('header');
-let lastScroll = 0;
-
-window.addEventListener('scroll', ()=>{
-  const current = window.scrollY;
-  if(current > lastScroll && current > 150){
-    menu.classList.add('hide');
-    header.classList.add('hide');
-  } else {
-    menu.classList.remove('hide');
-    header.classList.remove('hide');
-  }
-  lastScroll = current;
-});
-</script>
 </body>
 </html>
