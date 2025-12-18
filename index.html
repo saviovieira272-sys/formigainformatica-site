@@ -106,17 +106,20 @@
       border:none;
     }
 
-    .logo-container{
+    /* LOGO AJUSTADA DENTRO DO CABEÇALHO */
+    header .logo-container{
       display:flex;
       align-items:center;
       justify-content:center;
-      max-height:100%; /* garante que a logo não saia do header */
+      max-height:100%;
+      width:auto;
     }
 
-    header img{
+    header .logo-container img{
+      max-height:100%;
+      height:auto;
+      width:auto;
       display:block;
-      height:auto; /* mantém o tamanho real da imagem */
-      max-height:100%; /* cabe dentro do header */
     }
 
     /* HERO */
@@ -167,7 +170,7 @@
     /* WHATSAPP */
     .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#000;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
 
-    @media(max-width:768px){header{height:110px}.logo-container img{max-height:100px}.hero-content h2{font-size:30px}.menu-lateral{display:none}}
+    @media(max-width:768px){header{height:110px}header .logo-container img{max-height:90px}.hero-content h2{font-size:30px}.menu-lateral{display:none}}
   </style>
 </head>
 <body>
@@ -182,7 +185,6 @@
   <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
 
-<!-- HEADER COM LOGO AJUSTADA -->
 <header id="header">
   <div class="logo-container">
     <img src="logobrancavert.png" alt="Formiga Informática">
