@@ -23,7 +23,7 @@
       z-index:-1
     }
 
-    /* MENU LATERAL */
+    /* MENU LATERAL PADRÃO */
     .menu-lateral{
       position:fixed;
       top:50%;left:15px;
@@ -70,6 +70,7 @@
       box-shadow:0 0 0 2px rgba(0,0,0,.9), 0 10px 28px rgba(0,0,0,.45)
     }
 
+    /* MENU IMPACT SYSTEM AZUL */
     .menu-lateral .impact-link{
       background: rgba(0,191,255,0.85);
       border:1px solid rgba(0,191,255,0.9);
@@ -86,7 +87,7 @@
 
     /* HEADER INTERATIVO */
     header{
-      height:250px; /* cabeçalho maior para logo grande */
+      height:130px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -100,16 +101,23 @@
     }
 
     header.hidden{
-      top:-250px;
+      top:-130px;
       background:rgba(0,0,0,0);
       border:none;
     }
 
-    /* LOGO DEFINITIVA: grande dentro da meia lua */
-    header img{
-      max-height:200px; /* logo bem grande */
-      width:auto;
+    /* LOGO AUMENTADA */
+    header img.logo{
+      max-height:180px; /* altura maior da logo */
+      width:auto;       /* mantém proporção */
       object-fit:contain;
+    }
+
+    @media(max-width:768px){
+      header{height:110px}
+      header img.logo{max-height:140px;}
+      .hero-content h2{font-size:30px}
+      .menu-lateral{display:none}
     }
 
     /* HERO */
@@ -159,13 +167,6 @@
 
     /* WHATSAPP */
     .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#000;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
-
-    @media(max-width:768px){
-      header{height:160px}
-      header img{max-height:140px}
-      .hero-content h2{font-size:30px}
-      .menu-lateral{display:none}
-    }
   </style>
 </head>
 <body>
@@ -181,7 +182,7 @@
 </div>
 
 <header id="header">
-  <img src="logobrancavert.png" alt="Formiga Informática">
+  <img src="logobrancavert.png" alt="Formiga Informática" class="logo">
 </header>
 
 <section class="hero">
@@ -258,6 +259,7 @@
 </footer>
 
 <script>
+  // Cabeçalho e menu interativos
   let lastScroll = 0;
   const header = document.getElementById('header');
   const menu = document.querySelector('.menu-lateral');
