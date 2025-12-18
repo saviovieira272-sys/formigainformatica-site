@@ -30,7 +30,7 @@ body::before{
   display:flex;
   flex-direction:column;
   gap:12px;
-  z-index:1000;
+  z-index:1001;
   transition:opacity .5s ease, transform .5s ease
 }
 .menu-lateral.hide{
@@ -60,44 +60,35 @@ body::before{
   color:#000;
 }
 
-/* HEADER - CONTAINER INVISÍVEL PARA NÃO CORTAR */
+/* HEADER - MEIA LUA COMPACTA */
 header {
   display: flex;
   justify-content: center;
+  background: rgba(0,0,0,0.95);
+  clip-path: ellipse(60% 110px at 50% 0%); /* Curva elegante e curta */
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 999;
-  height: auto; 
+  height: 120px; /* Altura da parte preta */
   transition: transform 0.4s ease;
-  pointer-events: none; /* Deixa clicar no que está atrás se necessário */
 }
 
 header.hidden {
-  transform: translateY(-120%);
+  transform: translateY(-100%);
 }
 
-/* A MEIA LUA AGORA É O FUNDO DA LOGO */
-.logo-container {
-  background: rgba(0,0,0,0.9);
-  width: 100%;
-  max-width: 1200px; /* Largura da curva */
-  height: 250px; /* Altura total da área preta */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  clip-path: ellipse(80% 100% at 50% 0%); /* Curva perfeita sem corte lateral */
-  pointer-events: auto;
-}
-
+/* LOGO - GRANDE E SOBREPOSTA SEM CORTE */
 header img.logo {
-  height: 210px; /* LOGO REALMENTE GRANDE */
+  height: 220px; /* AQUI VOCÊ CONTROLA O TAMANHO DA LOGO */
   width: auto;
+  position: absolute;
+  top: 0; /* Começa do topo */
   object-fit: contain;
-  margin-top: -20px; /* Ajuste fino de centralização */
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
 }
 
 /* HERO */
-.hero{position:relative;height:90vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero{position:relative;height:90vh;overflow:hidden;display:flex;align-items:center;justify-content:center; margin-top: 0;}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(255,255,255,.6), rgba(255,255,255,.85));z-index:1}
 .hero-content{position:relative;z-index:2;text-align:center}
@@ -119,11 +110,6 @@ header img.logo {
 .quem-somos{padding:80px 8%;display:flex;justify-content:center}
 .quem-box{max-width:800px;background:rgba(255,255,255,.7);border:1px solid #000;padding:40px;text-align:center;line-height:1.7}
 
-/* DESENVOLVIMENTO DE SITES */
-.dev{padding:80px 8%;border-top:1px solid #000;display:flex;flex-direction:column;align-items:center}
-.dev-grid{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;width:100%}
-.dev-item{border:1px solid #000;padding:20px;width:260px;text-align:center;background:#fff;}
-
 /* IMPACT SYSTEM */
 .impact{padding:80px 8%;border-top:1px solid #000;display:flex;flex-direction:column;align-items:center}
 .impact-item{background:#00bfff;color:#000;padding:20px;border-radius:12px;text-align:center;}
@@ -134,8 +120,8 @@ header img.logo {
 footer{padding:40px; background:#000; color:#fff; text-align:center}
 
 @media(max-width:768px){
-  .logo-container { height: 160px; clip-path: ellipse(120% 100% at 50% 0%); }
-  header img.logo { height: 110px; }
+  header{height:100px; clip-path: ellipse(100% 90px at 50% 0%);}
+  header img.logo{height:140px;}
   .hero-content h2{font-size:26px}
   .menu-lateral{display:none}
 }
@@ -148,14 +134,11 @@ footer{padding:40px; background:#000; color:#fff; text-align:center}
   <a href="#servicos"><i class="fas fa-tools"></i>Serviços</a>
   <a href="#produtos"><i class="fas fa-box"></i>Produtos</a>
   <a href="#quem"><i class="fas fa-users"></i>Quem Somos</a>
-  <a href="#dev"><i class="fas fa-code"></i>Sites</a>
   <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
 
 <header id="header">
-  <div class="logo-container">
-    <img src="logobrancavert.png" alt="Formiga Informática" class="logo">
-  </div>
+  <img src="logobrancavert.png" alt="Formiga Informática" class="logo">
 </header>
 
 <section id="inicio" class="hero">
@@ -166,51 +149,39 @@ footer{padding:40px; background:#000; color:#fff; text-align:center}
 <section id="servicos" class="servicos">
   <div class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
   <div class="servico"><i class="fas fa-house-laptop"></i><h3>Visita Técnica</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-download"></i><h3>Instalação de Programas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-tools"></i><h3>Conserto de Computadores</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-laptop"></i><h3>Reparo de Carcaças</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-microchip"></i><h3>Reparo de Placas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-store"></i><h3>Venda de Computadores</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-download"></i><h3>Programas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-tools"></i><h3>Conserto</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-laptop"></i><h3>Carcaças</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-microchip"></i><h3>Placas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-store"></i><h3>Vendas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
   <div class="servico"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-print"></i><h3>Tintas e Toner</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-print"></i><h3>Suprimentos</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
   <div class="servico"><i class="fas fa-plug"></i><h3>Eletrônicos</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico criacao-sites"><i class="fas fa-globe"></i><h3>Criação de Sites</h3></div>
 </section>
 
 <section id="produtos" class="produtos">
   <h2 style="text-align:center; margin-bottom:40px">Produtos em Destaque</h2>
   <div class="produtos-grid">
-    <div class="produto"><img src="" alt="" style="width:100%;height:160px;background:#eee;margin-bottom:10px;"><p>Computadores</p></div>
-    <div class="produto"><img src="" alt="" style="width:100%;height:160px;background:#eee;margin-bottom:10px;"><p>Acessórios</p></div>
-    <div class="produto"><img src="" alt="" style="width:100%;height:160px;background:#eee;margin-bottom:10px;"><p>Eletrônicos</p></div>
+    <div class="produto"><div style="height:160px;background:#eee;margin-bottom:10px;"></div><p>Computadores</p></div>
+    <div class="produto"><div style="height:160px;background:#eee;margin-bottom:10px;"></div><p>Acessórios</p></div>
+    <div class="produto"><div style="height:160px;background:#eee;margin-bottom:10px;"></div><p>Eletrônicos</p></div>
   </div>
 </section>
 
 <section id="quem" class="quem-somos">
   <div class="quem-box">
     <h2>Quem Somos</h2>
-    <p>Com 18 anos de experiência em informática e 9 anos de atuação com loja física, somos especializados em serviços em informática em geral.</p>
-    <p>Atuamos também com venda de produtos, criação de sites e sistemas de gestão com emissão de notas fiscais para empresas.</p>
-    <p>Nosso compromisso é com transparência, confiança, qualidade e preço justo.</p>
+    <p>Com 18 anos de experiência em informática e 9 anos de atuação com loja física.</p>
+    <p>Compromisso com transparência, confiança e qualidade.</p>
   </div>
-</section>
-
-<section id="dev" class="dev">
-  <h2>Criação de Sites e Sistemas</h2>
-  <div class="dev-grid">
-    <div class="dev-item">Sites Institucionais</div>
-    <div class="dev-item">Lojas Virtuais</div>
-    <div class="dev-item">Sistemas Empresariais</div>
-  </div>
-  <a href="https://wa.me/5537999365150" class="btn-dev" style="display:inline-block;margin-top:30px;padding:14px 34px;background:#000;color:#fff;border-radius:40px;text-decoration:none;">Solicitar Orçamento</a>
 </section>
 
 <section id="impact" class="impact">
   <img src="impactweb.png" alt="Impact System" style="height:60px; margin-bottom:20px;">
-  <div class="impact-items" style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
-    <div class="impact-item"><h4>Fiscal</h4><p>Controle de impostos e notas fiscais.</p></div>
-    <div class="impact-item"><h4>Estoque</h4><p>Gerencie entradas e saídas.</p></div>
-    <div class="impact-item"><h4>Financeiro</h4><p>Controle de fluxo de caixa.</p></div>
+  <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+    <div class="impact-item"><h4>Fiscal</h4></div>
+    <div class="impact-item"><h4>Estoque</h4></div>
+    <div class="impact-item"><h4>Financeiro</h4></div>
   </div>
 </section>
 
@@ -218,7 +189,6 @@ footer{padding:40px; background:#000; color:#fff; text-align:center}
 
 <footer>
   <p>Rua Quintino Bocaiúva, 105 – Centro – Formiga/MG</p>
-  <p>Formiga Informática • Tecnologia que trabalha a favor do seu dia a dia</p>
 </footer>
 
 <script>
