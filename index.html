@@ -92,13 +92,13 @@
       justify-content:center;
       background:rgba(0,0,0,0.85);
       border-bottom:1px solid rgba(0,0,0,0.6);
-      clip-path:ellipse(60% 100% at 50% 0%);
+      clip-path:ellipse(60% 130px at 50% 0%); /* meia-lua fixa */
       position:fixed;
       top:0; left:0; right:0;
       z-index:999;
       transition:all .5s ease;
-      padding:20px 0; /* permite expansão vertical do header */
-      height:auto; /* header cresce conforme logo */
+      padding:20px 0;
+      height:auto;
       min-height:130px;
     }
 
@@ -109,61 +109,188 @@
     }
 
     header img.logo{
-      max-height:460px; /* altura grande da logo */
+      max-height:460px; /* altura da logo */
       width:auto;
       object-fit:contain;
     }
 
     /* HERO */
-    .hero{position:relative;height:90vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
-    .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(255,255,255,.6), rgba(255,255,255,.85));z-index:1}
-    .hero-content{position:relative;z-index:2;text-align:center}
-    .hero-content h2{font-size:42px;margin-bottom:10px;color:#fff;background:#000;padding:14px 26px;border-radius:999px;box-shadow:0 0 25px rgba(0,0,0,.35)}
-    .hero-content p{margin-top:12px;font-weight:500;opacity:.85}
+    .hero{
+      position:relative;
+      height:90vh;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hero video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:.25
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to bottom, rgba(255,255,255,.6), rgba(255,255,255,.85));
+      z-index:1
+    }
+    .hero-content{
+      position:relative;
+      z-index:2;
+      text-align:center;
+    }
+    .hero-content h2{
+      font-size:42px;
+      margin-bottom:10px;
+      color:#fff;
+      background:#000;
+      padding:14px 26px;
+      border-radius:999px;
+      box-shadow:0 0 25px rgba(0,0,0,.35);
+    }
+    .hero-content p{
+      margin-top:12px;
+      font-weight:500;
+      opacity:.85;
+    }
 
     /* SERVIÇOS */
-    .servicos{padding:80px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;justify-items:center;}
-    .servico{border:1px solid #000;padding:20px;text-align:center;transition:.4s;cursor:pointer;width:200px;}
+    .servicos{
+      padding:80px 8%;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:30px;
+      justify-items:center;
+    }
+    .servico{
+      border:1px solid #000;
+      padding:20px;
+      text-align:center;
+      transition:.4s;
+      cursor:pointer;
+      width:200px;
+    }
     .servico i{font-size:40px;margin-bottom:15px}
     .servico:hover{transform:scale(1.06);box-shadow:0 0 25px rgba(0,0,0,.35)}
-    .servico a{color:#fff;text-decoration:none;display:block;margin-top:10px;font-weight:600;}
+    .servico a{
+      color:#fff;
+      text-decoration:none;
+      display:block;
+      margin-top:10px;
+      font-weight:600;
+    }
     .servico.criacao-sites{grid-column:1/-1;}
 
     /* PRODUTOS */
     .produtos{padding:80px 8%}
     .produtos h2{text-align:center;margin-bottom:40px}
-    .produtos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
+    .produtos-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:30px;
+    }
     .produto{border:1px solid #000;padding:20px;transition:.3s}
     .produto:hover{transform:scale(1.04)}
     .produto img{width:100%;height:160px;background:#eee;margin-bottom:10px}
 
     /* QUEM SOMOS */
-    .quem-somos{padding:80px 8%;display:flex;justify-content:center}
-    .quem-box{max-width:800px;background:rgba(255,255,255,.7);border:1px solid #000;padding:40px;line-height:1.7}
+    .quem-somos{
+      padding:80px 8%;
+      display:flex;
+      justify-content:center;
+    }
+    .quem-box{
+      max-width:800px;
+      background:rgba(255,255,255,.7);
+      border:1px solid #000;
+      padding:40px;
+      line-height:1.7;
+    }
 
     /* DESENVOLVIMENTO DE SITES */
-    .dev{padding:80px 8%;border-top:1px solid #000;display:flex;flex-direction:column;align-items:center}
-    .dev-grid{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;width:100%}
+    .dev{
+      padding:80px 8%;
+      border-top:1px solid #000;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    .dev-grid{
+      display:flex;
+      gap:30px;
+      flex-wrap:wrap;
+      justify-content:center;
+      width:100%;
+    }
     .dev-item{border:1px solid #000;padding:20px;width:260px;text-align:center}
-    .btn-dev{display:inline-block;margin-top:30px;padding:14px 34px;background:rgba(0,0,0,0.9);color:#fff;border-radius:40px;text-decoration:none;font-weight:600;transition:.3s}
+    .btn-dev{
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 34px;
+      background:rgba(0,0,0,0.9);
+      color:#fff;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:600;
+      transition:.3s
+    }
     .btn-dev:hover{background:#000;box-shadow:0 0 20px rgba(0,0,0,.6);transform:scale(1.05)}
 
     /* IMPACT SYSTEM */
-    .impact{padding:80px 8%;border-top:1px solid #000;display:flex;flex-direction:column;align-items:center}
+    .impact{
+      padding:80px 8%;
+      border-top:1px solid #000;
+      display:flex;
+      flex-direction:column;
+      align-items:center
+    }
     .impact h2{text-align:center;margin-bottom:30px}
     .impact-box{width:100%;max-width:1000px;text-align:left;} 
-    .impact-items{display:flex;flex-wrap:wrap;gap:20px;margin-top:30px;justify-content:center;width:100%}
-    .impact-item{flex:1 1 250px;background:#00bfff;color:#000;padding:20px;border-radius:12px;text-align:center;box-shadow:0 0 20px rgba(0,191,255,.6);transition:.3s}
+    .impact-items{
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      margin-top:30px;
+      justify-content:center;
+      width:100%
+    }
+    .impact-item{
+      flex:1 1 250px;
+      background:#00bfff;
+      color:#000;
+      padding:20px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow:0 0 20px rgba(0,191,255,.6);
+      transition:.3s
+    }
     .impact-item:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(0,191,255,.8);}
     .impact .btn-dev{background:#00bfff;color:#000;margin-top:30px}
     .impact .btn-dev:hover{background:#0099cc;transform:scale(1.05)}
 
     /* WHATSAPP */
-    .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#000;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
+    .whatsapp{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      background:#25d366;
+      color:#000;
+      width:55px;
+      height:55px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      z-index:1000
+    }
 
     @media(max-width:768px){
-      header{height:auto; padding:10px 0}
+      header{height:110px}
       header img.logo{max-height:100px}
       .hero-content h2{font-size:30px}
       .menu-lateral{display:none}
@@ -187,8 +314,13 @@
 </header>
 
 <section class="hero">
-  <video autoplay muted loop><source src="video-informatica.mp4" type="video/mp4"></video>
-  <div class="hero-content"><h2>Tecnologia que resolve</h2><p>Soluções completas em informática</p></div>
+  <video autoplay muted loop>
+    <source src="video-informatica.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h2>Tecnologia que resolve</h2>
+    <p>Soluções completas em informática</p>
+  </div>
 </section>
 
 <!-- SERVIÇOS -->
