@@ -87,11 +87,10 @@
 
     /* HEADER INTERATIVO */
     header{
+      height:130px;
       display:flex;
-      align-items:flex-end; /* logo encostada na parte inferior da meia-lua */
+      align-items:center; /* centraliza verticalmente */
       justify-content:center;
-      padding-bottom:20px;
-      height:200px; /* altura do header compacta */
       background:rgba(0,0,0,0.85);
       border-bottom:1px solid rgba(0,0,0,0.6);
       clip-path:ellipse(60% 100% at 50% 0%);
@@ -102,14 +101,14 @@
     }
 
     header.hidden{
-      top:-200px;
+      top:-130px;
       background:rgba(0,0,0,0);
       border:none;
     }
 
-    header img.logo-header{
-      max-height:160px; /* logo maior */
-      height:auto;
+    header img{
+      max-height:100%; /* ajusta a logo ao tamanho do header */
+      width:auto;      /* mantém proporção */
     }
 
     /* HERO */
@@ -150,7 +149,6 @@
     /* IMPACT SYSTEM */
     .impact{padding:80px 8%;border-top:1px solid #000;display:flex;flex-direction:column;align-items:center}
     .impact h2{text-align:center;margin-bottom:30px}
-    .impact img{height:60px;margin-bottom:20px}
     .impact-box{width:100%;max-width:1000px;text-align:left;} 
     .impact-items{display:flex;flex-wrap:wrap;gap:20px;margin-top:30px;justify-content:center;width:100%}
     .impact-item{flex:1 1 250px;background:#00bfff;color:#000;padding:20px;border-radius:12px;text-align:center;box-shadow:0 0 20px rgba(0,191,255,.6);transition:.3s}
@@ -161,12 +159,7 @@
     /* WHATSAPP */
     .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#000;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
 
-    @media(max-width:768px){
-      header{height:160px}
-      header img.logo-header{max-height:120px}
-      .hero-content h2{font-size:30px}
-      .menu-lateral{display:none}
-    }
+    @media(max-width:768px){header{height:110px}header img{max-height:100%}.hero-content h2{font-size:30px}.menu-lateral{display:none}}
   </style>
 </head>
 <body>
@@ -182,7 +175,7 @@
 </div>
 
 <header id="header">
-  <img src="logobrancavert.png" alt="Formiga Informática" class="logo-header">
+  <img src="logobrancavert.png" alt="Formiga Informática">
 </header>
 
 <section class="hero">
@@ -238,7 +231,7 @@
 
 <!-- IMPACT SYSTEM -->
 <section id="impact" class="impact">
-  <img src="impactweb.png" alt="Impact System">
+  <img src="impactweb.png" alt="Impact System" style="height:60px; margin-bottom:20px;">
   <div class="impact-box">
     <div class="impact-items">
       <div class="impact-item"><h4>Fiscal</h4><p>Controle de impostos, notas fiscais e obrigações legais.</p></div>
