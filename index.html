@@ -61,29 +61,30 @@ body::before{
   transform:translateX(6px)
 }
 
-/* HEADER AJUSTADO PARA LOGO MAIOR */
+/* HEADER - AJUSTE DA MEIA LUA E LOGO */
 header{
   display:flex;
-  align-items: center; /* Centraliza verticalmente no espaço */
+  align-items: center; /* Centraliza verticalmente */
   justify-content:center;
-  background:rgba(0,0,0,0.85);
-  clip-path:ellipse(60% 130px at 50% 0%);
+  background:rgba(0,0,0,0.9);
+  clip-path:ellipse(65% 140px at 50% 0%); /* Curva levemente ajustada */
   position:fixed;
   top:0; left:0; right:0;
   z-index:999;
-  height:180px; /* Aumentado levemente para dar área de respiro */
-  transition: top 0.4s ease;
+  height:180px; /* Altura total do container do header */
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 header.hidden{
-  top:-200px;
+  transform: translateY(-100%);
+  opacity: 0;
 }
 
 header img.logo{
-  height: 220px; /* Tamanho da logo maior */
+  height: 220px; /* Aumentado para dar destaque */
   width: auto;
   object-fit: contain;
-  margin-top: -30px; /* Sobe a logo para o centro da meia-lua */
-  filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.5));
+  margin-top: -40px; /* Puxa a logo para cima para compensar a curva da meia lua */
+  display: block;
 }
 
 /* HERO */
@@ -95,27 +96,21 @@ header img.logo{
 .hero-content p{margin-top:12px;font-weight:500;opacity:.85}
 
 /* SERVIÇOS */
-.servicos{padding:80px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;justify-items:center;}
-.servico{border:1px solid #000;padding:20px;text-align:center;transition:.4s;cursor:pointer;width:200px;}
+.servicos{padding:120px 8% 80px; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; justify-items:center;}
+.servico{border:1px solid #000;padding:20px;text-align:center;transition:.4s;cursor:pointer;width:200px;background:#fff;}
 .servico i{font-size:40px;margin-bottom:15px}
 .servico:hover{transform:scale(1.06);box-shadow:0 0 25px rgba(0,0,0,.35)}
 .servico a{color:#000;text-decoration:none;display:block;margin-top:10px;font-weight:600;}
 
-/* IMPACT SYSTEM */
-.impact{padding:80px 8%;border-top:1px solid #000;display:flex;flex-direction:column;align-items:center}
-.impact-item{flex:1 1 250px;background:#00bfff;color:#000;padding:20px;border-radius:12px;text-align:center;box-shadow:0 0 20px rgba(0,191,255,.6);transition:.3s}
-.impact-item:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(0,191,255,.8);}
-.btn-dev{display:inline-block;margin-top:30px;padding:14px 34px;background:rgba(0,0,0,0.9);color:#fff;border-radius:40px;text-decoration:none;font-weight:600;transition:.3s}
-
 /* WHATSAPP */
-.whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000;text-decoration:none}
+.whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000;text-decoration:none;box-shadow: 0 4px 10px rgba(0,0,0,0.3)}
 
-footer{padding:40px; text-align:center; background:#000; color:#fff;}
+footer{padding:40px; background:#000; color:#fff; text-align:center}
 
 @media(max-width:768px){
-  header{height:120px; clip-path:ellipse(80% 100px at 50% 0%);}
-  header img.logo{height:140px; margin-top: -15px;}
-  .hero-content h2{font-size:28px}
+  header{height:140px; clip-path:ellipse(90% 100px at 50% 0%);}
+  header img.logo{height:160px; margin-top: -20px;}
+  .hero-content h2{font-size:30px}
   .menu-lateral{display:none}
 }
 </style>
@@ -125,48 +120,26 @@ footer{padding:40px; text-align:center; background:#000; color:#fff;}
 <div class="menu-lateral">
   <a href="#inicio"><i class="fas fa-home"></i>Início</a>
   <a href="#servicos"><i class="fas fa-tools"></i>Serviços</a>
-  <a href="#quem"><i class="fas fa-users"></i>Quem Somos</a>
-  <a href="#impact"><i class="fas fa-server"></i>Impact System</a>
+  <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
 
 <header id="header">
   <img src="logobrancavert.png" alt="Formiga Informática" class="logo">
 </header>
 
-<section id="inicio" class="hero">
+<section class="hero" id="inicio">
   <video autoplay muted loop><source src="video-informatica.mp4" type="video/mp4"></video>
   <div class="hero-content"><h2>Tecnologia que resolve</h2><p>Soluções completas em informática</p></div>
 </section>
 
 <section id="servicos" class="servicos">
   <div class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-laptop"></i><h3>Reparo de Carcaças</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-microchip"></i><h3>Reparo de Placas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-</section>
-
-<section id="quem" class="quem-somos" style="padding: 80px 8%; text-align: center;">
-    <div style="max-width: 800px; margin: 0 auto; background: rgba(255,255,255,0.8); padding: 40px; border: 1px solid #000;">
-        <h2>Quem Somos</h2>
-        <p style="margin-top: 20px; line-height: 1.6;">Com 18 anos de experiência em informática e 9 anos de atuação com loja física, somos especializados em serviços em informática em geral.</p>
-    </div>
-</section>
-
-<section id="impact" class="impact">
-  <h2 style="margin-bottom: 30px;">Impact System</h2>
-  <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-      <div class="impact-item"><h4>Fiscal</h4><p>Controle de impostos e notas.</p></div>
-      <div class="impact-item"><h4>Estoque</h4><p>Gerencie seu inventário.</p></div>
-  </div>
-  <a href="https://wa.me/5537999365150" class="btn-dev">Quero Saber Mais</a>
+  <div class="servico"><i class="fas fa-tools"></i><h3>Conserto</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-laptop"></i><h3>Notebooks</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-globe"></i><h3>Sites</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
 </section>
 
 <a class="whatsapp" href="https://wa.me/5537999365150" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-<footer>
-  <p>Rua Quintino Bocaiúva, 105 – Centro – Formiga/MG</p>
-  <p>Formiga Informática • Tecnologia que trabalha a favor do seu dia a dia</p>
-</footer>
 
 <script>
   let lastScroll = 0;
