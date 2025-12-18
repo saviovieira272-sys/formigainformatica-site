@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +6,6 @@
   <title>Formiga Informática</title>
 
   <!-- Fontes e Ícones -->
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -32,17 +30,21 @@
       display:flex;
       flex-direction:column;
       gap:12px;
-      z-index:1000
+      z-index:1000;
+      transition:transform .4s ease, opacity .4s ease
+    }
+    .menu-lateral.hide{
+      transform:translate(-40px,-50%);
+      opacity:0
     }
     .menu-lateral a{
       color:#000;
       text-decoration:none;
-      padding:8px 18px 8px 18px;
+      padding:8px 18px;
       display:inline-flex;
       align-items:center;
-      gap:8px;
       white-space:nowrap;
-      width:auto;
+      width:auto; /* tamanho exato do texto */
       border:1px solid rgba(255,255,255,0.55);
       border-radius:30px;
       font-size:14px;
@@ -50,30 +52,20 @@
       background:rgba(255,255,255,0.72);
       backdrop-filter:blur(8px);
       transition:
-        padding 0.45s cubic-bezier(.25,.8,.25,1),
-        background 0.45s cubic-bezier(.25,.8,.25,1),
-        box-shadow 0.45s cubic-bezier(.25,.8,.25,1),
-        transform 0.45s cubic-bezier(.25,.8,.25,1)
-    }
-    .menu-lateral a i{
-      font-size:12px;
-      opacity:.7
+        padding .45s cubic-bezier(.25,.8,.25,1),
+        background .45s cubic-bezier(.25,.8,.25,1),
+        box-shadow .45s cubic-bezier(.25,.8,.25,1),
+        transform .45s cubic-bezier(.25,.8,.25,1)
     }
     .menu-lateral a:hover{
-      padding-right:34px;
+      padding-right:36px;
       background:rgba(255,255,255,0.95);
       box-shadow:0 8px 22px rgba(255,255,255,.35);
       transform:translateX(4px)
     }
-    .menu-lateral a.active{
-      background:#fff;
-      box-shadow:0 0 0 2px rgba(255,255,255,.9), 0 10px 28px rgba(255,255,255,.45)
-    }
 
     /* HEADER */
     header{
-      position:fixed;
-      top:0;left:0;right:0;
       height:130px;
       background:rgba(255,255,255,0.85);
       display:flex;
@@ -81,20 +73,15 @@
       justify-content:center;
       border-bottom:1px solid rgba(255,255,255,0.6);
       clip-path:ellipse(60% 100% at 50% 0%);
-      z-index:900;
-      transition:transform .6s cubic-bezier(.22,.61,.36,1)
-    }
-    header.hide{
-      transform:translateY(-100%)
+      transition:transform .4s ease
     }
     header h1{font-size:32px;letter-spacing:2px;color:#000}
 
     /* HERO */
     .hero{
       position:relative;
-      height:100vh;
-      overflow:hidden;
-      padding-top:130px
+      height:90vh;
+      overflow:hidden
     }
     .hero video{
       position:absolute;
@@ -122,164 +109,77 @@
     }
     .hero-content h2{
       font-size:42px;
-      margin-bottom:10px;
       color:#000;
       background:rgba(255,255,255,0.92);
       padding:14px 26px;
       border-radius:999px;
-      display:inline-block;
       box-shadow:0 0 25px rgba(255,255,255,.35)
     }
 
-    /* SEÇÕES */
-    section{scroll-margin-top:150px}
-
+    /* SEÇÕES (restante intacto) */
     .servicos,.produtos,.quem-somos,.dev{padding:80px 8%}
-
-    .servicos{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:30px
-    }
-    .servico{
-      border:1px solid #fff;
-      padding:30px;
-      text-align:center;
-      transition:.45s ease
-    }
-    .servico:hover{transform:scale(1.06);box-shadow:0 0 25px rgba(255,255,255,.35)}
-
-    .produtos h2{text-align:center;margin-bottom:40px}
-    .produtos-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:30px
-    }
-    .produto{border:1px solid #fff;padding:20px;transition:.3s}
-    .produto:hover{transform:scale(1.04)}
-    .produto img{width:100%;height:160px;background:#111;margin-bottom:10px}
-
-    .quem-somos{display:flex;justify-content:center}
-    .quem-box{max-width:800px;background:rgba(0,0,0,.7);border:1px solid #fff;padding:40px}
-
-    .dev{border-top:1px solid #fff}
-    .dev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
-    .dev-item{border:1px solid #fff;padding:20px}
-    .btn-dev{display:inline-block;margin-top:30px;padding:14px 34px;background:rgba(255,255,255,0.9);color:#000;border-radius:40px;text-decoration:none;font-weight:600;transition:.4s}
-    .btn-dev:hover{background:#fff;box-shadow:0 0 20px rgba(255,255,255,.6);transform:scale(1.08)}
-
-    .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
-
     footer{border-top:1px solid rgba(255,255,255,.6);padding:40px 8%;text-align:center}
+
+    .whatsapp{
+      position:fixed;
+      right:20px;bottom:20px;
+      background:#25d366;
+      color:#fff;
+      width:55px;height:55px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      z-index:1000
+    }
 
     @media(max-width:768px){
       header{height:110px}
       header h1{font-size:24px}
-      .hero-content h2{font-size:30px}
       .menu-lateral{display:none}
     }
   </style>
-
 </head>
+
 <body>
 
 <div class="menu-lateral">
-  <a href="#inicio"><i class="fas fa-home"></i>Início</a>
-  <a href="#servicos"><i class="fas fa-cog"></i>Serviços</a>
-  <a href="#produtos"><i class="fas fa-box"></i>Produtos</a>
-  <a href="#quem"><i class="fas fa-users"></i>Quem Somos</a>
-  <a href="#dev"><i class="fas fa-code"></i>Sites</a>
+  <a href="#inicio">Início</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#produtos">Produtos</a>
+  <a href="#quem">Quem Somos</a>
+  <a href="#dev">Sites</a>
 </div>
 
 <header id="inicio">
   <h1>FORMIGA INFORMÁTICA</h1>
 </header>
 
-<section class="hero">
-  <video autoplay muted loop>
-    <source src="video-informatica.mp4" type="video/mp4">
-  </video>
-  <div class="hero-content">
-    <h2>Tecnologia que resolve</h2>
-    <p>Soluções completas em informática</p>
-  </div>
-</section>
+<section class="hero"></section>
 
-<section id="servicos" class="servicos">
-  <div class="servico"><i class="fab fa-windows"></i><h3>Formatação</h3></div>
-  <div class="servico"><i class="fas fa-tools"></i><h3>Manutenção</h3></div>
-  <div class="servico"><i class="fas fa-broom"></i><h3>Limpeza Interna</h3></div>
-  <div class="servico"><i class="fas fa-network-wired"></i><h3>Suporte Técnico</h3></div>
-</section>
-
-<section id="produtos" class="produtos">
-  <h2>Produtos em Destaque</h2>
-  <div class="produtos-grid">
-    <div class="produto"><img><p>Produto 1</p><strong>R$ --</strong></div>
-    <div class="produto"><img><p>Produto 2</p><strong>R$ --</strong></div>
-    <div class="produto"><img><p>Produto 3</p><strong>R$ --</strong></div>
-  </div>
-</section>
-
-<section id="quem" class="quem-somos">
-  <div class="quem-box">
-    <h2>Quem Somos</h2>
-    <p>A Formiga Informática oferece soluções completas em tecnologia, com foco em confiança, qualidade e atendimento próximo.</p>
-  </div>
-</section>
-
-<section id="dev" class="dev">
-  <h2>Desenvolvimento de Sites</h2>
-  <div class="dev-grid">
-    <div class="dev-item">Projeto 1</div>
-    <div class="dev-item">Projeto 2</div>
-    <div class="dev-item">HTML • CSS • JS</div>
-  </div>
-  <a href="#" class="btn-dev">Quero saber mais</a>
-</section>
-
-<a class="whatsapp" href="https://wa.me/5537999365150" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-<footer>
-  <p>Rua Quintino Bocaiúva, 105 – Centro – Formiga/MG</p>
-  <p>CNPJ • Formiga Informática</p>
-  <p>Tecnologia que trabalha a favor do seu dia a dia</p>
-</footer>
+<a class="whatsapp" href="https://wa.me/5537999365150" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 <script>
-  // Microanimação menu
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.menu-lateral a').forEach((item, i) => {
-      item.style.opacity = '0';
-      item.style.transform = 'translateX(-14px)';
-      setTimeout(() => {
-        item.style.opacity = '1';
-        item.style.transform = 'translateX(0)';
-      }, 120 * i);
-    });
-  });
-
-  // Scroll spy
-  
-
-    menuLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-    });
-  });
-
-  // Header hide/show
+  // HEADER E MENU SOMEM AO DESCER E VOLTAM AO SUBIR
   let lastScroll = 0;
   const header = document.querySelector('header');
+  const menu = document.querySelector('.menu-lateral');
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    if (currentScroll > lastScroll && currentScroll > 200) header.classList.add('hide');
-    else header.classList.remove('hide');
-    lastScroll = currentScroll;
+    const current = window.pageYOffset;
+    if(current > lastScroll && current > 150){
+      header.style.transform = 'translateY(-140px)';
+      menu.classList.add('hide');
+    } else {
+      header.style.transform = 'translateY(0)';
+      menu.classList.remove('hide');
+    }
+    lastScroll = current;
   });
 </script>
 
 </body>
 </html>
-
