@@ -36,11 +36,11 @@
     .menu-lateral a{
       color:#000;
       text-decoration:none;
-      padding:8px 18px;
+      padding:8px 18px 8px 22px; /* mais espaço à esquerda */
       width:fit-content;
       display:inline-flex;
       align-items:center;
-      justify-content:center;
+      justify-content:flex-start; /* texto encostado à esquerda */
       white-space:nowrap;
       border:1px solid rgba(255,255,255,0.6);
       border-radius:30px;
@@ -48,7 +48,13 @@
       font-weight:700;
       background:rgba(255,255,255,0.75);
       backdrop-filter:blur(6px);
-      transition:all .35s ease
+      transition:background .35s ease, box-shadow .35s ease, padding .35s ease, transform .35s ease
+    }
+    .menu-lateral a:hover{
+      padding-right:34px; /* cresce suavemente só para a direita */
+      background:rgba(255,255,255,0.95);
+      box-shadow:0 0 18px rgba(255,255,255,.45);
+      transform:translateX(4px)
     }
     .menu-lateral a:hover{
       padding:8px 30px;
