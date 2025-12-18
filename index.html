@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Formiga Informática</title>
 
-<!-- Fontes e Ícones -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -79,10 +78,10 @@ body::before{
   color:#000;
 }
 
-/* HEADER INTERATIVO */
+/* HEADER INTERATIVO AJUSTADO */
 header{
   display:flex;
-  align-items:center;
+  align-items: flex-start; /* Alinha ao topo para a logo subir um pouco */
   justify-content:center;
   background:rgba(0,0,0,0.85);
   border-bottom:1px solid rgba(0,0,0,0.6);
@@ -90,18 +89,18 @@ header{
   position:fixed;
   top:0; left:0; right:0;
   z-index:999;
-  padding:0;
-  height:150px; /* altura do header */
+  padding-top: 10px; /* Espaço do topo */
+  height:150px; 
+  transition: top 0.4s ease;
 }
 header.hidden{
-  top:-150px;
-  background:rgba(0,0,0,0);
-  border:none;
+  top:-160px;
 }
 header img.logo{
-  height:430px; /* altura da logo */
-  width:auto;
-  object-fit:contain;
+  height: 90px; /* Tamanho ajustado para caber na curva */
+  width: auto;
+  object-fit: contain;
+  margin-top: 5px; /* Refinamento da posição vertical */
 }
 
 /* HERO */
@@ -117,7 +116,7 @@ header img.logo{
 .servico{border:1px solid #000;padding:20px;text-align:center;transition:.4s;cursor:pointer;width:200px;}
 .servico i{font-size:40px;margin-bottom:15px}
 .servico:hover{transform:scale(1.06);box-shadow:0 0 25px rgba(0,0,0,.35)}
-.servico a{color:#fff;text-decoration:none;display:block;margin-top:10px;font-weight:600;}
+.servico a{color:#000;text-decoration:none;display:block;margin-top:10px;font-weight:600;}
 .servico.criacao-sites{grid-column:1/-1;}
 
 /* PRODUTOS */
@@ -150,11 +149,13 @@ header img.logo{
 .impact .btn-dev:hover{background:#0099cc;transform:scale(1.05)}
 
 /* WHATSAPP */
-.whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#000;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
+.whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000;text-decoration:none;box-shadow: 0 4px 10px rgba(0,0,0,0.3);}
+
+footer{padding:40px; text-align:center; background:#000; color:#fff;}
 
 @media(max-width:768px){
   header{height:110px}
-  header img.logo{height:90px}
+  header img.logo{height:60px}
   .hero-content h2{font-size:30px}
   .menu-lateral{display:none}
 }
@@ -162,7 +163,6 @@ header img.logo{
 </head>
 <body>
 
-<!-- MENU LATERAL -->
 <div class="menu-lateral">
   <a href="#inicio"><i class="fas fa-home"></i>Início</a>
   <a href="#servicos"><i class="fas fa-tools"></i>Serviços</a>
@@ -172,18 +172,15 @@ header img.logo{
   <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
 
-<!-- HEADER -->
 <header id="header">
   <img src="logobrancavert.png" alt="Formiga Informática" class="logo">
 </header>
 
-<!-- HERO -->
-<section class="hero">
+<section id="inicio" class="hero">
   <video autoplay muted loop><source src="video-informatica.mp4" type="video/mp4"></video>
   <div class="hero-content"><h2>Tecnologia que resolve</h2><p>Soluções completas em informática</p></div>
 </section>
 
-<!-- SERVIÇOS -->
 <section id="servicos" class="servicos">
   <div class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
   <div class="servico"><i class="fas fa-house-laptop"></i><h3>Visita Técnica</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
@@ -198,17 +195,15 @@ header img.logo{
   <div class="servico criacao-sites"><i class="fas fa-globe"></i><h3>Criação de Sites</h3></div>
 </section>
 
-<!-- PRODUTOS -->
 <section id="produtos" class="produtos">
   <h2>Produtos em Destaque</h2>
   <div class="produtos-grid">
-    <div class="produto"><img><p>Computadores</p></div>
-    <div class="produto"><img><p>Acessórios</p></div>
-    <div class="produto"><img><p>Eletrônicos</p></div>
+    <div class="produto"><div style="height:160px; background:#eee;"></div><p>Computadores</p></div>
+    <div class="produto"><div style="height:160px; background:#eee;"></div><p>Acessórios</p></div>
+    <div class="produto"><div style="height:160px; background:#eee;"></div><p>Eletrônicos</p></div>
   </div>
 </section>
 
-<!-- QUEM SOMOS -->
 <section id="quem" class="quem-somos">
   <div class="quem-box">
     <h2>Quem Somos</h2>
@@ -218,7 +213,6 @@ header img.logo{
   </div>
 </section>
 
-<!-- DESENVOLVIMENTO DE SITES -->
 <section id="dev" class="dev">
   <h2>Criação de Sites e Sistemas</h2>
   <div class="dev-grid">
@@ -229,7 +223,6 @@ header img.logo{
   <a href="https://wa.me/5537999365150" class="btn-dev">Solicitar Orçamento</a>
 </section>
 
-<!-- IMPACT SYSTEM -->
 <section id="impact" class="impact">
   <img src="impactweb.png" alt="Impact System" style="height:60px; margin-bottom:20px;">
   <div class="impact-box">
@@ -252,7 +245,6 @@ header img.logo{
 </footer>
 
 <script>
-  // Cabeçalho e menu interativos
   let lastScroll = 0;
   const header = document.getElementById('header');
   const menu = document.querySelector('.menu-lateral');
