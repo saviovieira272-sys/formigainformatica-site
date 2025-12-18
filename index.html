@@ -89,7 +89,7 @@
     header{
       height:130px;
       display:flex;
-      align-items:center; /* centraliza verticalmente */
+      align-items:center;
       justify-content:center;
       background:rgba(0,0,0,0.85);
       border-bottom:1px solid rgba(0,0,0,0.6);
@@ -106,9 +106,17 @@
       border:none;
     }
 
+    .logo-container{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      max-height:100%; /* garante que a logo não saia do header */
+    }
+
     header img{
-      max-height:100%; /* ajusta a logo ao tamanho do header */
-      width:auto;      /* mantém proporção */
+      display:block;
+      height:auto; /* mantém o tamanho real da imagem */
+      max-height:100%; /* cabe dentro do header */
     }
 
     /* HERO */
@@ -159,7 +167,7 @@
     /* WHATSAPP */
     .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#000;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
 
-    @media(max-width:768px){header{height:110px}header img{max-height:100%}.hero-content h2{font-size:30px}.menu-lateral{display:none}}
+    @media(max-width:768px){header{height:110px}.logo-container img{max-height:100px}.hero-content h2{font-size:30px}.menu-lateral{display:none}}
   </style>
 </head>
 <body>
@@ -174,8 +182,11 @@
   <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
 
+<!-- HEADER COM LOGO AJUSTADA -->
 <header id="header">
-  <img src="logobrancavert.png" alt="Formiga Informática">
+  <div class="logo-container">
+    <img src="logobrancavert.png" alt="Formiga Informática">
+  </div>
 </header>
 
 <section class="hero">
