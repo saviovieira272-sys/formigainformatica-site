@@ -37,11 +37,12 @@
     .menu-lateral a{
       color:#000;
       text-decoration:none;
-      padding:8px 18px 8px 16px;
+      padding:8px 18px 8px 18px;
       display:inline-flex;
       align-items:center;
       gap:8px;
       white-space:nowrap;
+      width:auto;
       border:1px solid rgba(255,255,255,0.55);
       border-radius:30px;
       font-size:14px;
@@ -49,10 +50,10 @@
       background:rgba(255,255,255,0.72);
       backdrop-filter:blur(8px);
       transition:
-        padding 0.55s cubic-bezier(.22,.61,.36,1),
-        background 0.45s ease,
-        box-shadow 0.45s ease,
-        transform 0.45s ease
+        padding 0.45s cubic-bezier(.25,.8,.25,1),
+        background 0.45s cubic-bezier(.25,.8,.25,1),
+        box-shadow 0.45s cubic-bezier(.25,.8,.25,1),
+        transform 0.45s cubic-bezier(.25,.8,.25,1)
     }
     .menu-lateral a i{
       font-size:12px;
@@ -61,7 +62,7 @@
     .menu-lateral a:hover{
       padding-right:34px;
       background:rgba(255,255,255,0.95);
-      box-shadow:0 10px 26px rgba(255,255,255,.35);
+      box-shadow:0 8px 22px rgba(255,255,255,.35);
       transform:translateX(4px)
     }
     .menu-lateral a.active{
@@ -259,15 +260,7 @@
   });
 
   // Scroll spy
-  const sections = document.querySelectorAll('section, header');
-  const menuLinks = document.querySelectorAll('.menu-lateral a');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 160;
-      if (scrollY >= sectionTop) current = section.getAttribute('id');
-    });
+  
 
     menuLinks.forEach(link => {
       link.classList.remove('active');
@@ -289,3 +282,4 @@
 
 </body>
 </html>
+
