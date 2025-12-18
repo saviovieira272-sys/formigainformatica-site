@@ -1,0 +1,259 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formiga Informática</title>
+
+  <!-- Fontes e Ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+    body{background:#000;color:#fff;overflow-x:hidden}
+
+    /* TEXTURA DE FUNDO */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+      opacity:.25;
+      z-index:-1
+    }
+
+    /* MENU LATERAL */
+    .menu-lateral{
+      position:fixed;
+      top:50%;left:20px;
+      transform:translateY(-50%);
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      z-index:1000
+    }
+    .menu-lateral a{
+      color:#fff;
+      text-decoration:none;
+      padding:10px 14px;
+      border:1px solid #fff;
+      border-radius:30px;
+      font-size:14px;
+      transition:.3s
+    }
+    .menu-lateral a:hover{background:#fff;color:#000}
+
+    /* HEADER MEIA LUA */
+    header{
+      height:130px;
+      background:#000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-bottom:1px solid #fff;
+      clip-path:ellipse(60% 100% at 50% 0%)
+    }
+    header h1{font-size:32px;letter-spacing:2px}
+
+    /* HERO */
+    .hero{
+      position:relative;
+      height:90vh;
+      overflow:hidden
+    }
+    .hero video{
+      position:absolute;
+      inset:0;
+      width:100%;height:100%;
+      object-fit:cover;
+      opacity:.35
+    }
+    .hero-content{
+      position:relative;
+      z-index:2;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center
+    }
+    .hero-content h2{font-size:42px;margin-bottom:10px}
+    .hero-content p{opacity:.8}
+
+    /* SERVIÇOS */
+    .servicos{
+      padding:80px 8%;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:30px
+    }
+    .servico{
+      border:1px solid #fff;
+      padding:30px;
+      text-align:center;
+      transition:.4s;
+      cursor:pointer
+    }
+    .servico i{
+      font-size:40px;
+      margin-bottom:15px
+    }
+    .servico:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 20px rgba(255,255,255,.3)
+    }
+
+    /* PRODUTOS */
+    .produtos{
+      padding:80px 8%
+    }
+    .produtos h2{text-align:center;margin-bottom:40px}
+    .produtos-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:30px
+    }
+    .produto{
+      border:1px solid #fff;
+      padding:20px;
+      transition:.3s
+    }
+    .produto:hover{transform:scale(1.04)}
+    .produto img{
+      width:100%;height:160px;
+      background:#111;
+      margin-bottom:10px
+    }
+
+    /* QUEM SOMOS */
+    .quem-somos{
+      padding:80px 8%;
+      display:flex;
+      justify-content:center
+    }
+    .quem-box{
+      max-width:800px;
+      background:rgba(0,0,0,.7);
+      border:1px solid #fff;
+      padding:40px
+    }
+
+    /* DESENVOLVIMENTO */
+    .dev{
+      padding:80px 8%;
+      border-top:1px solid #fff
+    }
+    .dev-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px
+    }
+    .dev-item{
+      border:1px solid #fff;
+      padding:20px
+    }
+    .btn-dev{
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 30px;
+      background:#fff;
+      color:#000;
+      border-radius:30px;
+      text-decoration:none;
+      transition:.3s
+    }
+    .btn-dev:hover{transform:scale(1.05)}
+
+    /* WHATSAPP */
+    .whatsapp{
+      position:fixed;
+      right:20px;bottom:20px;
+      background:#25d366;
+      color:#fff;
+      width:55px;height:55px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      z-index:1000
+    }
+
+    /* RODAPÉ */
+    footer{
+      border-top:1px solid #fff;
+      padding:40px 8%;
+      text-align:center
+    }
+  </style>
+</head>
+<body>
+
+<div class="menu-lateral">
+  <a href="#inicio">Início</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#produtos">Produtos</a>
+  <a href="#quem">Quem Somos</a>
+  <a href="#dev">Sites</a>
+</div>
+
+<header id="inicio">
+  <h1>FORMIGA INFORMÁTICA</h1>
+</header>
+
+<section class="hero">
+  <video autoplay muted loop>
+    <source src="video-informatica.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h2>Tecnologia que resolve</h2>
+    <p>Soluções completas em informática</p>
+  </div>
+</section>
+
+<section id="servicos" class="servicos">
+  <div class="servico"><i class="fab fa-windows"></i><h3>Formatação</h3></div>
+  <div class="servico"><i class="fas fa-tools"></i><h3>Manutenção</h3></div>
+  <div class="servico"><i class="fas fa-broom"></i><h3>Limpeza Interna</h3></div>
+  <div class="servico"><i class="fas fa-network-wired"></i><h3>Suporte Técnico</h3></div>
+</section>
+
+<section id="produtos" class="produtos">
+  <h2>Produtos em Destaque</h2>
+  <div class="produtos-grid">
+    <div class="produto"><img><p>Produto 1</p><strong>R$ --</strong></div>
+    <div class="produto"><img><p>Produto 2</p><strong>R$ --</strong></div>
+    <div class="produto"><img><p>Produto 3</p><strong>R$ --</strong></div>
+  </div>
+</section>
+
+<section id="quem" class="quem-somos">
+  <div class="quem-box">
+    <h2>Quem Somos</h2>
+    <p>A Formiga Informática oferece soluções completas em tecnologia, com foco em confiança, qualidade e atendimento próximo.</p>
+  </div>
+</section>
+
+<section id="dev" class="dev">
+  <h2>Desenvolvimento de Sites</h2>
+  <div class="dev-grid">
+    <div class="dev-item">Projeto 1</div>
+    <div class="dev-item">Projeto 2</div>
+    <div class="dev-item">Código HTML / CSS / JS</div>
+  </div>
+  <a href="#" class="btn-dev">Quero saber mais</a>
+</section>
+
+<a class="whatsapp" href="https://wa.me/5537999365150" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<footer>
+  <p>Rua Quintino Bocaiúva, 105 – Centro – Formiga/MG</p>
+  <p>CNPJ • Formiga Informática</p>
+  <p>Tecnologia que trabalha a favor do seu dia a dia</p>
+</footer>
+
+</body>
+</html>
