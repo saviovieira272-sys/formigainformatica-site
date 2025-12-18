@@ -26,8 +26,7 @@
     /* MENU LATERAL */
     .menu-lateral{
       position:fixed;
-      top:50%;
-      left:15px;
+      top:50%;left:15px;
       transform:translateY(-50%);
       display:flex;
       flex-direction:column;
@@ -35,11 +34,13 @@
       z-index:1000;
       transition:opacity .5s ease, transform .5s ease
     }
+
     .menu-lateral.hide{
       opacity:0;
       transform:translate(-15px,-50%);
       pointer-events:none
     }
+
     .menu-lateral a{
       color:#000;
       text-decoration:none;
@@ -56,19 +57,21 @@
       backdrop-filter:blur(8px);
       transition:.55s cubic-bezier(0.22,1,0.36,1)
     }
+
     .menu-lateral a:hover{
       padding-right:42px;
       background:rgba(255,255,255,0.95);
       box-shadow:0 10px 26px rgba(255,255,255,.35);
       transform:translateX(6px)
     }
+
     .menu-lateral a.active{
       background:#fff;
       box-shadow:0 0 0 2px rgba(255,255,255,.9), 0 10px 28px rgba(255,255,255,.45)
     }
 
     /* MENU LATERAL IMPACT SYSTEM */
-    .menu-lateral-impact a{
+    .menu-impact a{
       color:#000;
       text-decoration:none;
       padding:10px 18px 10px 16px;
@@ -76,39 +79,44 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      border:1px solid rgba(0,255,255,0.55);
+      border:1px solid rgba(0,191,255,0.7);
       border-radius:30px;
       font-size:14px;
       font-weight:700;
-      background:rgba(0,255,255,0.72);
+      background:rgba(0,191,255,0.72);
       backdrop-filter:blur(8px);
       transition:.55s cubic-bezier(0.22,1,0.36,1)
     }
-    .menu-lateral-impact a:hover{
+
+    .menu-impact a:hover{
       padding-right:42px;
-      background:rgba(0,255,255,0.95);
-      box-shadow:0 10px 26px rgba(0,255,255,.35);
+      background:rgba(0,191,255,0.95);
+      box-shadow:0 10px 26px rgba(0,191,255,.5);
       transform:translateX(6px)
     }
 
     /* HEADER INTERATIVO */
     header{
       height:130px;
-      background:rgba(255,255,255,0.85);
       display:flex;
       align-items:center;
       justify-content:center;
+      background:rgba(255,255,255,0.85);
       border-bottom:1px solid rgba(255,255,255,0.6);
       clip-path:ellipse(60% 100% at 50% 0%);
       position:fixed;
-      width:100%;
-      top:0;
-      left:0;
+      top:0; left:0; right:0;
       z-index:999;
-      transition: top 0.4s, background 0.4s;
+      transition:all .5s ease;
     }
 
-    header.hide{top:-150px; background:rgba(255,255,255,0);}
+    header.hidden{
+      top:-130px;
+      background:rgba(255,255,255,0);
+      border:none;
+    }
+
+    header img{max-height:80px;}
 
     /* HERO */
     .hero{position:relative;height:90vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
@@ -119,10 +127,11 @@
     .hero-content p{margin-top:12px;font-weight:500;opacity:.85}
 
     /* SERVIÇOS */
-    .servicos{padding:80px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;justify-items:center}
-    .servico{border:1px solid #fff;padding:20px 30px;text-align:center;transition:.4s;cursor:pointer;width:200px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .servicos{padding:80px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;justify-items:center;}
+    .servico{border:1px solid #fff;padding:20px;text-align:center;transition:.4s;cursor:pointer;width:200px;}
     .servico i{font-size:40px;margin-bottom:15px}
     .servico:hover{transform:scale(1.06);box-shadow:0 0 25px rgba(255,255,255,.35)}
+    .servico a{color:#000;text-decoration:none;display:block;margin-top:10px;font-weight:600;}
 
     /* PRODUTOS */
     .produtos{padding:80px 8%}
@@ -137,18 +146,22 @@
     .quem-box{max-width:800px;background:rgba(0,0,0,.7);border:1px solid #fff;padding:40px;line-height:1.7}
 
     /* DESENVOLVIMENTO */
-    .dev{padding:80px 8%;border-top:1px solid #fff;text-align:center}
-    .dev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;justify-content:center}
-    .dev-item{border:1px solid #fff;padding:20px;height:200px;display:flex;align-items:center;justify-content:center}
+    .dev{padding:80px 8%;border-top:1px solid #fff;display:flex;flex-direction:column;align-items:center}
+    .dev-grid{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;width:100%}
+    .dev-item{border:1px solid #fff;padding:20px;width:260px;text-align:center}
     .btn-dev{display:inline-block;margin-top:30px;padding:14px 34px;background:rgba(255,255,255,0.9);color:#000;border-radius:40px;text-decoration:none;font-weight:600;transition:.3s}
     .btn-dev:hover{background:#fff;box-shadow:0 0 20px rgba(255,255,255,.6);transform:scale(1.05)}
+
+    /* IMPACT SYSTEM */
+    .impact{padding:80px 8%;border-top:1px solid #fff;display:flex;flex-direction:column;align-items:center}
+    .impact h2{text-align:center;margin-bottom:30px}
+    .impact-box{max-width:800px;background:rgba(0,191,255,0.2);border:1px solid #00bfff;padding:40px;line-height:1.7;text-align:center}
+    .impact-box p{margin-top:10px}
 
     /* WHATSAPP */
     .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
 
-    footer{border-top:1px solid rgba(255,255,255,.6);padding:40px 8%;text-align:center;background:#000}
-
-    @media(max-width:768px){header{height:110px}.hero-content h2{font-size:30px}.menu-lateral{display:none}}
+    @media(max-width:768px){header{height:110px}header img{max-height:60px}.hero-content h2{font-size:30px}.menu-lateral{display:none}}
   </style>
 </head>
 <body>
@@ -160,29 +173,26 @@
   <a href="#produtos"><i class="fas fa-box"></i>Produtos</a>
   <a href="#quem"><i class="fas fa-users"></i>Quem Somos</a>
   <a href="#dev"><i class="fas fa-code"></i>Sites</a>
+  <a href="#impact"><i class="fas fa-server"></i>Impact System</a>
 </div>
 
-<header id="inicio"></header>
+<header id="header"><img src="logo.png" alt="Logo"></header>
 
 <section class="hero">
   <video autoplay muted loop><source src="video-informatica.mp4" type="video/mp4"></video>
   <div class="hero-content"><h2>Tecnologia que resolve</h2><p>Soluções completas em informática</p></div>
 </section>
 
+<!-- SERVIÇOS -->
 <section id="servicos" class="servicos">
-  <div class="servico"><a href="https://wa.me/5537999365150"><i class="fab fa-windows"></i><h3>Formatações</h3></a></div>
-  <div class="servico"><a href="https://wa.me/5537999365150"><i class="fas fa-house-laptop"></i><h3>Visita Técnica</h3></a></div>
-  <div class="servico"><a href="https://wa.me/5537999365150"><i class="fas fa-download"></i><h3>Instalação de Programas</h3></a></div>
-  <div class="servico"><a href="https://wa.me/5537999365150"><i class="fas fa-tools"></i><h3>Conserto de Computadores</h3></a></div>
-  <div class="servico"><a href="https://wa.me/5537999365150"><i class="fas fa-laptop"></i><h3>Reparo de Carcaças</h3></a></div>
-  <div class="servico"><a href="https://wa.me/5537999365150"><i class="fas fa-microchip"></i><h3>Reparo de Placas</h3></a></div>
-  <div class="servico"><a href="https://wa.me/5537999365150"><i class="fas fa-store"></i><h3>Venda de Computadores</h3></a></div>
-  <div class="servico" style="grid-column: 1/-1;"><a href="https://wa.me/5537998400037"><i class="fas fa-globe"></i><h3>Criação de Sites</h3></a></div>
-  <div class="servico"><a href="https://wa.me/5537999365150"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3></a></div>
-  <div class="servico"><a href="https://wa.me/5537999365150"><i class="fas fa-print"></i><h3>Tintas e Toner</h3></a></div>
-  <div class="servico"><a href="https://wa.me/5537999365150"><i class="fas fa-plug"></i><h3>Eletrônicos</h3></a></div>
+  <div class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-house-laptop"></i><h3>Visita Técnica</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-download"></i><h3>Instalação de Programas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-tools"></i><h3>Conserto de Computadores</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-globe"></i><h3>Criação de Sites</h3><a href="https://wa.me/5537998400037" target="_blank">WhatsApp</a></div> <!-- centralizado -->
 </section>
 
+<!-- PRODUTOS -->
 <section id="produtos" class="produtos">
   <h2>Produtos em Destaque</h2>
   <div class="produtos-grid">
@@ -192,6 +202,7 @@
   </div>
 </section>
 
+<!-- QUEM SOMOS -->
 <section id="quem" class="quem-somos">
   <div class="quem-box">
     <h2>Quem Somos</h2>
@@ -201,19 +212,30 @@
   </div>
 </section>
 
+<!-- DESENVOLVIMENTO DE SITES -->
 <section id="dev" class="dev">
-  <h2>Impact System</h2>
+  <h2>Criação de Sites e Sistemas</h2>
   <div class="dev-grid">
-    <div class="dev-item">Gestão Fiscal</div>
-    <div class="dev-item">Controle de Estoque</div>
-    <div class="dev-item">Financeiro</div>
-    <div class="dev-item">Vendas e PDV</div>
-    <div class="dev-item">Relatórios</div>
+    <div class="dev-item">Sites Institucionais</div>
+    <div class="dev-item">Lojas Virtuais</div>
+    <div class="dev-item">Sistemas Empresariais</div>
   </div>
-  <p style="margin-top:20px; max-width:700px; margin-left:auto; margin-right:auto;">
-    O Impact System é um sistema de gestão completo para empresas, abrangendo módulos fiscais, controle de estoque, financeiro, vendas e relatórios gerenciais, permitindo maior controle e eficiência administrativa.
-  </p>
-  <a href="https://wa.me/5537998400037" class="btn-dev">Solicitar Orçamento</a>
+  <a href="https://wa.me/5537999365150" class="btn-dev">Solicitar Orçamento</a>
+</section>
+
+<!-- IMPACT SYSTEM -->
+<section id="impact" class="impact">
+  <h2>Impact System</h2>
+  <div class="impact-box">
+    <p>Soluções completas em sistemas de gestão para sua empresa:</p>
+    <ul>
+      <li>Controle Fiscal</li>
+      <li>Gestão de Estoque</li>
+      <li>Financeiro e Contas a Pagar/Receber</li>
+      <li>Emissão de Notas Fiscais</li>
+      <li>Relatórios e Dashboards Personalizados</li>
+    </ul>
+  </div>
 </section>
 
 <a class="whatsapp" href="https://wa.me/5537999365150" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -224,18 +246,18 @@
 </footer>
 
 <script>
-  // MENU LATERAL E HEADER
-  const menu = document.querySelector('.menu-lateral');
-  const header = document.querySelector('header');
+  // Cabeçalho interativo
   let lastScroll = 0;
+  const header = document.getElementById('header');
+  const menu = document.querySelector('.menu-lateral');
 
-  window.addEventListener('scroll', () => {
+  window.addEventListener('scroll',()=>{
     const current = window.scrollY;
-    if(current > lastScroll && current > 150){
-      header.classList.add('hide');
+    if(current > lastScroll && current > 100){
+      header.classList.add('hidden');
       menu.classList.add('hide');
     } else {
-      header.classList.remove('hide');
+      header.classList.remove('hidden');
       menu.classList.remove('hide');
     }
     lastScroll = current;
