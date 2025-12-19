@@ -90,11 +90,12 @@
       border:none
     }
 
-    /* LOGO GRANDE DE VERDADE */
+    /* 🔥 ÚNICA ALTERAÇÃO: LOGO VISUALMENTE MAIOR */
     header .logo{
       max-height:125px;
       width:auto;
       object-fit:contain;
+      transform:scale(1.35); /* <<< AQUI */
     }
 
     /* HERO */
@@ -126,7 +127,7 @@
 
     @media(max-width:768px){
       header{height:110px}
-      header .logo{max-height:100px}
+      header .logo{max-height:100px;transform:scale(1.25)}
       .menu-lateral{display:none}
       .hero-content h2{font-size:30px}
     }
@@ -156,7 +157,9 @@
   </div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/5537999365150"><i class="fab fa-whatsapp"></i></a>
+<a class="whatsapp" href="https://wa.me/5537999365150">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 <script>
 let lastScroll=0;
