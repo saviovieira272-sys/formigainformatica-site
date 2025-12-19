@@ -52,22 +52,30 @@ header img.logo {height: 80px; width: auto;}
 .hero-content{position:relative; z-index:2; text-align:center;}
 .hero-content h2{ font-size:clamp(18px, 3vw, 32px); color:#fff; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; background: #000; padding: 12px 25px; border-radius: 4px; }
 
-/* SERVIÇOS */
-.servicos-grid{padding:0 8% 120px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;}
-.servico-card{ border: 1px solid #eaeaea; padding: 40px 20px; text-align:center; transition: .4s; background:#fff; border-radius: 15px; text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; }
-.servico-card:hover{background: #000; color: #fff; transform: translateY(-10px); border-color: #000;}
-.servico-card i{font-size: 35px; margin-bottom: 15px;}
-.servico-card:hover i{color: #00bfff;}
+/* SERVIÇOS E WEB CARDS */
+.grid-layout{padding:0 8% 120px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;}
+.card-padrao{ border: 1px solid #eaeaea; padding: 50px 25px; text-align:center; transition: .4s; background:#fff; border-radius: 15px; text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; }
+.card-padrao:hover{background: #000; color: #fff; transform: translateY(-10px); border-color: #000;}
+.card-padrao i{font-size: 35px; margin-bottom: 15px;}
+.card-padrao:hover i{color: #00bfff;}
+
+/* BOTÃO SOLICITAR (WEB) */
+.btn-solicitar { 
+  display: inline-block; margin-top: 20px; padding: 12px 30px; 
+  background: #000; color: #fff; border: 2px solid #fff; 
+  text-decoration: none; border-radius: 50px; font-weight: 700; transition: 0.3s; 
+}
+/* Quando o mouse está no card, o botão ganha borda branca para aparecer no fundo preto */
+.card-padrao:hover .btn-solicitar { border-color: #fff; }
+
+/* Quando o mouse está DIRETAMENTE no botão, ele inverte */
+.btn-solicitar:hover { background: #fff !important; color: #000 !important; }
 
 /* PRODUTOS POLAROID */
 .grid-polaroid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:40px; padding: 0 8% 120px;}
 .polaroid{ background: #fff; padding: 15px 15px 35px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee; transition: .4s; transform: rotate(-1.5deg); }
 .polaroid:hover{ transform: rotate(0deg) translateY(-10px); }
 .polaroid img{ width: 100%; height: 260px; object-fit: cover; margin-bottom: 20px; border: 1px solid #f0f0f0; }
-
-/* BOTÃO SOLICITAR WEB (CORREÇÃO E-COMMERCE) */
-.btn-solicitar { display: inline-block; margin-top: 20px; padding: 12px 30px; background: #000; color: #fff; border: 2px solid #000; text-decoration: none; border-radius: 50px; font-weight: 700; transition: 0.3s; }
-.btn-solicitar:hover { background: #fff !important; color: #000 !important; }
 
 /* IMPACT SYSTEM */
 .impact-container{padding:120px 8%; text-align: center; border-top: 1px solid #eee;}
@@ -111,17 +119,17 @@ footer{padding:80px 0; background:#000; color:#fff; text-align:center;}
 
 <section id="servicos">
   <h2 style="text-align:center; padding: 150px 0 60px; font-size:2.5rem; text-transform: uppercase; font-weight: 800;" class="reveal">Serviços Profissionais</h2>
-  <div class="servicos-grid">
-    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20formatação!" target="_blank" class="servico-card reveal"><i class="fab fa-windows"></i><h3>Formatações</h3></a>
-    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20visita%20técnica!" target="_blank" class="servico-card reveal"><i class="fas fa-house-laptop"></i><h3>Visita técnica</h3></a>
-    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20instalação%20de%20programas!" target="_blank" class="servico-card reveal"><i class="fas fa-download"></i><h3>Instalação de programas</h3></a>
-    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20conserto%20de%20computadores!" target="_blank" class="servico-card reveal"><i class="fas fa-laptop-medical"></i><h3>Conserto de computadores</h3></a>
-    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20reparo%20de%20carcaças!" target="_blank" class="servico-card reveal"><i class="fas fa-hammer"></i><h3>Reparo de carcaças</h3></a>
-    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20reparo%20de%20placas!" target="_blank" class="servico-card reveal"><i class="fas fa-microchip"></i><h3>Reparo de placas</h3></a>
-    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20PC%20Gamer!" target="_blank" class="servico-card reveal"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3></a>
-    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20tintas%20e%20toner!" target="_blank" class="servico-card reveal"><i class="fas fa-print"></i><h3>Tintas e Toner</h3></a>
-    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20eletrônicos!" target="_blank" class="servico-card reveal"><i class="fas fa-plug"></i><h3>Eletrônicos</h3></a>
-    <a href="https://wa.me/5537998400037?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20criação%20e%20desenvolvimento%20de%20sites!" target="_blank" class="servico-card reveal"><i class="fas fa-code"></i><h3>Criação de sites</h3></a>
+  <div class="grid-layout">
+    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20formatação!" target="_blank" class="card-padrao reveal"><i class="fab fa-windows"></i><h3>Formatações</h3></a>
+    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20visita%20técnica!" target="_blank" class="card-padrao reveal"><i class="fas fa-house-laptop"></i><h3>Visita técnica</h3></a>
+    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20instalação%20de%20programas!" target="_blank" class="card-padrao reveal"><i class="fas fa-download"></i><h3>Instalação de programas</h3></a>
+    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20conserto%20de%20computadores!" target="_blank" class="card-padrao reveal"><i class="fas fa-laptop-medical"></i><h3>Conserto de computadores</h3></a>
+    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20reparo%20de%20carcaças!" target="_blank" class="card-padrao reveal"><i class="fas fa-hammer"></i><h3>Reparo de carcaças</h3></a>
+    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20reparo%20de%20placas!" target="_blank" class="card-padrao reveal"><i class="fas fa-microchip"></i><h3>Reparo de placas</h3></a>
+    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20PC%20Gamer!" target="_blank" class="card-padrao reveal"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3></a>
+    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20tintas%20e%20toner!" target="_blank" class="card-padrao reveal"><i class="fas fa-print"></i><h3>Tintas e Toner</h3></a>
+    <a href="https://wa.me/5537999365150?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20eletrônicos!" target="_blank" class="card-padrao reveal"><i class="fas fa-plug"></i><h3>Eletrônicos</h3></a>
+    <a href="https://wa.me/5537998400037?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20criação%20e%20desenvolvimento%20de%20sites!" target="_blank" class="card-padrao reveal"><i class="fas fa-code"></i><h3>Criação de sites</h3></a>
   </div>
 </section>
 
@@ -136,10 +144,10 @@ footer{padding:80px 0; background:#000; color:#fff; text-align:center;}
 
 <section id="sites" style="padding:120px 8%; background: #fafafa;">
   <h2 class="reveal" style="text-align:center; margin-bottom:60px; font-size: 2.2rem; text-transform: uppercase; font-weight: 800;">Web & Design</h2>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:40px">
-    <div class="servico-card reveal" style="padding: 60px 40px; background: #fff;"><h3>Institucionais</h3><a href="https://wa.me/5537998400037" target="_blank" class="btn-solicitar">SOLICITAR</a></div>
-    <div class="servico-card reveal" style="padding: 60px 40px; background: #fff;"><h3>E-commerce</h3><a href="https://wa.me/5537998400037" target="_blank" class="btn-solicitar">SOLICITAR</a></div>
-    <div class="servico-card reveal" style="padding: 60px 40px; background: #fff;"><h3>Landing Pages</h3><a href="https://wa.me/5537998400037" target="_blank" class="btn-solicitar">SOLICITAR</a></div>
+  <div class="grid-layout">
+    <div class="card-padrao reveal"><h3>Institucionais</h3><a href="https://wa.me/5537998400037?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20Site%20Institucional" target="_blank" class="btn-solicitar">SOLICITAR</a></div>
+    <div class="card-padrao reveal"><h3>E-commerce</h3><a href="https://wa.me/5537998400037?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20Loja%20Virtual" target="_blank" class="btn-solicitar">SOLICITAR</a></div>
+    <div class="card-padrao reveal"><h3>Landing Pages</h3><a href="https://wa.me/5537998400037?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20Landing%20Page" target="_blank" class="btn-solicitar">SOLICITAR</a></div>
   </div>
 </section>
 
