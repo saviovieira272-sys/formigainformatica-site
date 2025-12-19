@@ -19,12 +19,12 @@ body::before{
   opacity:.08; z-index:-1;
 }
 
-/* ANIMAÇÃO DE SURGIMENTO (CORRIGIDA) */
+/* ANIMAÇÃO DE SURGIMENTO */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  visibility: hidden; /* Evita que o item ocupe espaço invisível antes da animação */
+  visibility: hidden;
 }
 .reveal.active {
   opacity: 1;
@@ -45,16 +45,8 @@ body::before{
   font-size:13px; font-weight:600; background:rgba(40,40,40,0.9); backdrop-filter:blur(10px); transition:.3s ease;
 }
 .menu-lateral a:hover{padding-right:45px; background:#000; transform:translateX(8px)}
-
-/* IMPACT LINK COM BRILHO AZUL */
-.menu-lateral .impact-link{
-  background: #00bfff; color:#000;
-  animation: glowBlue 2s infinite alternate;
-}
-@keyframes glowBlue {
-  from { box-shadow: 0 0 5px rgba(0, 191, 255, 0.4); }
-  to { box-shadow: 0 0 20px rgba(0, 191, 255, 1); }
-}
+.menu-lateral .impact-link{background: #00bfff; color:#000; animation: glowBlue 2s infinite alternate;}
+@keyframes glowBlue { from { box-shadow: 0 0 5px rgba(0, 191, 255, 0.4); } to { box-shadow: 0 0 20px rgba(0, 191, 255, 1); } }
 
 /* HEADER */
 header {
@@ -68,7 +60,7 @@ header img.logo {height: 80px; width: auto;}
 /* HERO */
 .hero{
   position:relative; height: 85vh; display:flex; align-items:center;
-  justify-content:center; overflow:hidden; background: #fff;
+  justify-content:center; overflow:hidden;
 }
 .hero video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index: 1;}
 .hero-content{position:relative; z-index:2; text-align:center;}
@@ -78,66 +70,56 @@ header img.logo {height: 80px; width: auto;}
   background: #000; padding: 20px 40px; border-radius: 4px;
 }
 
-/* SERVIÇOS */
-.servicos-titulo{text-align:center; padding: 150px 0 60px; font-size:2.5rem; text-transform: uppercase; font-weight: 800;}
-.servicos{
-  padding:0 8% 120px; display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px; justify-content: center;
-}
-.servico-link{text-decoration: none; color: inherit; display: flex; justify-content: center;}
-.servico{
-  border: 1px solid #eaeaea; padding: 50px 25px; text-align:center; 
-  transition: all 0.4s ease; background:#fff; width: 100%;
-  border-radius: 15px; display:flex; flex-direction:column; align-items:center;
-}
-.servico:hover{transform: translateY(-10px); background: #000; color: #fff; border-color: #000;}
-.servico i{font-size:38px; margin-bottom:20px; color:#000; transition: .4s;}
-.servico:hover i{color:#00bfff;}
-.servico h3{font-size: 0.9rem; font-weight: 700; text-transform: uppercase;}
-
-/* Caso sobre um card na última linha, ele centraliza */
-.servicos > a:last-child:nth-child(3n-2) { grid-column: 1 / -1; max-width: 350px; margin: 0 auto; }
-
-/* PRODUTOS E SITES */
+/* CARDS POLAROID (PRODUTOS) */
 .padrao-secao{padding:120px 8%; border-top:1px solid #f5f5f5;}
-.padrao-secao h2{text-align:center; margin-bottom:70px; font-size: 2.2rem; text-transform: uppercase; font-weight: 800;}
-.grid-padrao{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:40px}
-.card-padrao{border: 1px solid #eee; padding:70px 40px; transition:.4s; background:#fff; text-align:center; border-radius: 20px;}
-.card-padrao:hover{background: #000; color: #fff; transform: translateY(-8px);}
-
-.btn-sites {
-  display: inline-block; margin-top: 30px; padding: 15px 35px;
-  background: #000; color: #fff; text-decoration: none;
-  font-weight: 700; border-radius: 50px; transition: .3s;
+.grid-polaroid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:40px}
+.polaroid{
+  background: #fff; padding: 15px 15px 30px 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid #eee; transition: .4s ease;
+  transform: rotate(-1deg);
 }
-.btn-sites:hover { background: #00bfff; color: #000; transform: scale(1.05); }
+.polaroid:nth-child(even){ transform: rotate(1.5deg); }
+.polaroid:hover{ transform: rotate(0deg) translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+.polaroid img{ width: 100%; height: 250px; object-fit: cover; background: #f9f9f9; margin-bottom: 20px; border: 1px solid #f0f0f0; }
+.polaroid h3{ font-size: 1.1rem; margin-bottom: 8px; text-transform: uppercase; font-weight: 700;}
+.polaroid p{ font-size: 0.9rem; color: #666; margin-bottom: 12px;}
+.polaroid .preco{ font-size: 1.3rem; font-weight: 900; color: #000;}
 
 /* IMPACT SYSTEM */
 .impact-container{padding:120px 8%; background: #fff; text-align: center; border-top: 1px solid #eee;}
 .impact-grid{display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px;}
 .impact-card{background: #00bfff; color: #fff; padding: 60px 30px; border-radius: 20px; transition: .4s; border:none;}
-.impact-card:hover{transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,191,255,0.4);}
-.impact-card i{font-size: 45px; margin-bottom: 25px; color:#fff;}
-.impact-card h3, .impact-card p {color:#fff !important;}
+.impact-btn{
+    display: inline-block; margin-top: 40px; padding: 18px 40px;
+    background: #000; color: #fff; text-decoration: none;
+    font-weight: 800; border-radius: 50px; transition: .3s;
+}
+.impact-btn:hover{ background: #008fcc; transform: scale(1.05); }
 
 /* QUEM SOMOS */
 .quem-somos{padding:120px 8%; display:flex; justify-content:center; background: #fafafa; border-top: 1px solid #eee;}
-.quem-box{max-width:900px; background:#fff; padding:80px 60px; text-align:center; border-radius: 30px; border: 1px solid #eee;}
+.quem-box{max-width:900px; background:#fff; padding:80px 60px; text-align:left; border-radius: 30px; border: 1px solid #eee; line-height: 1.8;}
+.quem-box h2{ text-align: center; margin-bottom: 40px; font-size: 2.2rem; text-transform: uppercase; font-weight: 900;}
+.quem-box p{ margin-bottom: 20px; font-size: 1.1rem; color: #333;}
+
+/* ESTILOS REUTILIZÁVEIS */
+.servicos-titulo{text-align:center; padding: 150px 0 60px; font-size:2.5rem; text-transform: uppercase; font-weight: 800;}
+.servicos{padding:0 8% 120px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; justify-content: center;}
+.servico-link{text-decoration: none; color: inherit; display: flex; justify-content: center;}
+.servico{border: 1px solid #eaeaea; padding: 50px 25px; text-align:center; transition: .4s; background:#fff; width:100%; border-radius: 15px; display:flex; flex-direction:column; align-items:center;}
+.servico:hover{background: #000; color: #fff;}
+.servico i{font-size:38px; margin-bottom:20px;}
+.servico:hover i{color:#00bfff;}
+
+.btn-sites {display: inline-block; margin-top: 20px; padding: 12px 30px; background: #000; color: #fff; text-decoration: none; border-radius: 50px; font-weight: 700;}
 
 /* WHATSAPP FLOAT */
-.whatsapp-float{
-  position:fixed; right:35px; bottom:35px; background:#25d366; color:#fff; 
-  width:65px; height:65px; border-radius:50%; display:flex; align-items:center; 
-  justify-content:center; font-size:32px; z-index:1000;
-}
+.whatsapp-float{position:fixed; right:35px; bottom:35px; background:#25d366; color:#fff; width:65px; height:65px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:32px; z-index:1000;}
 
 footer{padding:100px 0; background:#000; color:#fff; text-align:center;}
 
-@media(max-width:768px){
-  .hero-content h2{font-size:22px; padding: 15px;}
-  .menu-lateral{display:none;}
-}
+@media(max-width:768px){ .hero-content h2{font-size:22px;} .menu-lateral{display:none;} .quem-box{padding: 40px 25px;} }
 </style>
 </head>
 
@@ -179,20 +161,35 @@ footer{padding:100px 0; background:#000; color:#fff; text-align:center;}
 </section>
 
 <section id="produtos" class="padrao-secao">
-  <h2 class="reveal">Produtos</h2>
-  <div class="grid-padrao">
-    <div class="card-padrao reveal"><h3>Montagem de PCs</h3><p>Equipamentos de alta performance para empresas.</p></div>
-    <div class="card-padrao reveal"><h3>PC Gamer</h3><p>O melhor hardware para o seu setup de jogos.</p></div>
-    <div class="card-padrao reveal"><h3>Suprimentos</h3><p>Linha completa de toners e acessórios.</p></div>
+  <h2 style="text-align:center; margin-bottom:70px; font-size: 2.2rem; text-transform: uppercase; font-weight: 800;" class="reveal">Produtos em Destaque</h2>
+  <div class="grid-polaroid">
+    <div class="polaroid reveal">
+        <img src="produto1.jpg" alt="Produto">
+        <h3>Computador Office</h3>
+        <p>Ideal para empresas e estudos.</p>
+        <span class="preco">R$ 1.890,00</span>
+    </div>
+    <div class="polaroid reveal">
+        <img src="produto2.jpg" alt="Produto">
+        <h3>PC Gamer Formiga</h3>
+        <p>Alta performance em jogos.</p>
+        <span class="preco">R$ 4.500,00</span>
+    </div>
+    <div class="polaroid reveal">
+        <img src="produto3.jpg" alt="Produto">
+        <h3>Teclado Mecânico</h3>
+        <p>RGB e switch azul.</p>
+        <span class="preco">R$ 250,00</span>
+    </div>
   </div>
 </section>
 
 <section id="sites" class="padrao-secao" style="background: #fafafa;">
-  <h2 class="reveal">Web & Design</h2>
-  <div class="grid-padrao">
-    <div class="card-padrao reveal"><h3>Institucionais</h3><p>Sites modernos e responsivos.</p><a href="https://wa.me/5537998400037" target="_blank" class="btn-sites">SOLICITAR</a></div>
-    <div class="card-padrao reveal"><h3>Lojas Virtuais</h3><p>Sua empresa vendendo online.</p><a href="https://wa.me/5537998400037" target="_blank" class="btn-sites">SOLICITAR</a></div>
-    <div class="card-padrao reveal"><h3>Landing Pages</h3><p>Foco total em conversão.</p><a href="https://wa.me/5537998400037" target="_blank" class="btn-sites">SOLICITAR</a></div>
+  <h2 class="reveal" style="text-align:center; margin-bottom:60px; font-size: 2.2rem; text-transform: uppercase; font-weight: 800;">Web & Design</h2>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:40px">
+    <div class="servico reveal" style="padding: 60px 40px;"><h3>Institucionais</h3><p style="margin: 15px 0;">Sites profissionais.</p><a href="https://wa.me/5537998400037" target="_blank" class="btn-sites">SOLICITAR</a></div>
+    <div class="servico reveal" style="padding: 60px 40px;"><h3>Lojas Virtuais</h3><p style="margin: 15px 0;">Venda em todo lugar.</p><a href="https://wa.me/5537998400037" target="_blank" class="btn-sites">SOLICITAR</a></div>
+    <div class="servico reveal" style="padding: 60px 40px;"><h3>Landing Pages</h3><p style="margin: 15px 0;">Foco em vendas.</p><a href="https://wa.me/5537998400037" target="_blank" class="btn-sites">SOLICITAR</a></div>
   </div>
 </section>
 
@@ -204,12 +201,15 @@ footer{padding:100px 0; background:#000; color:#fff; text-align:center;}
     <div class="impact-card reveal"><i class="fas fa-boxes-stacked"></i><h3>Estoque</h3><p>Controle total.</p></div>
     <div class="impact-card reveal"><i class="fas fa-chart-line"></i><h3>Gestão</h3><p>Relatórios precisos.</p></div>
   </div>
+  <a href="https://wa.me/5537999213140" target="_blank" class="impact-btn reveal">QUERO SABER MAIS</a>
 </section>
 
 <section id="quem" class="quem-somos">
   <div class="quem-box reveal">
-    <h2>18 Anos de História</h2>
-    <p>Soluções tecnológicas com transparência e foco na sua necessidade.</p>
+    <h2>Quem Somos</h2>
+    <p>Com 18 anos de experiência em informática e 9 anos de atuação com loja física, somos especializados em serviços em informática em geral, oferecendo soluções completas em tecnologia para nossos clientes.</p>
+    <p>Também trabalhamos com venda de produtos, criação de sites e sistemas de gestão com emissão de notas fiscais para empresas, ajudando negócios a se organizarem e crescerem com tecnologia confiável e atualizada.</p>
+    <p>Nosso compromisso é com a transparência, confiança, qualidade e preço justo, garantindo um atendimento honesto e focado na real necessidade de cada cliente.</p>
   </div>
 </section>
 
@@ -221,41 +221,26 @@ footer{padding:100px 0; background:#000; color:#fff; text-align:center;}
 </footer>
 
 <script>
-// Transição suave Stagger (Corrigida para evitar sumiço)
 function reveal() {
   const reveals = document.querySelectorAll(".reveal");
   const windowHeight = window.innerHeight;
-
   reveals.forEach((el, index) => {
     const elementTop = el.getBoundingClientRect().top;
-    const elementVisible = 100;
-
-    if (elementTop < windowHeight - elementVisible) {
-      // Adiciona a classe active com um leve delay para o efeito cascata
-      setTimeout(() => {
-        el.classList.add("active");
-      }, (index % 3) * 100); 
+    if (elementTop < windowHeight - 80) {
+      setTimeout(() => { el.classList.add("active"); }, (index % 3) * 100); 
     }
   });
 }
-
-// Eventos de scroll e carregamento
 window.addEventListener("scroll", reveal);
-window.addEventListener("load", reveal); // Garante que itens visíveis no topo apareçam
+window.addEventListener("load", reveal);
 
-// Header e Menu Logic
 let lastScroll = 0;
 const header = document.getElementById("header");
 const menu = document.getElementById("menuLateral");
 window.addEventListener("scroll", () => {
   const current = window.scrollY;
-  if (current > lastScroll && current > 120) { 
-    header.classList.add("hidden"); 
-    menu.classList.add("hide"); 
-  } else { 
-    header.classList.remove("hidden"); 
-    menu.classList.remove("hide"); 
-  }
+  if (current > lastScroll && current > 120) { header.classList.add("hidden"); menu.classList.add("hide"); } 
+  else { header.classList.remove("hidden"); menu.classList.remove("hide"); }
   lastScroll = current;
 });
 </script>
