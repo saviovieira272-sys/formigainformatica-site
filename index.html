@@ -34,12 +34,18 @@ body::before{
   display:inline-flex; align-items:center; gap:10px; border-radius:50px;
   font-size:13px; font-weight:600; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); transition:.3s;
 }
-.menu-lateral a:hover{padding-right:45px; background:#000; transform:translateX(8px)}
+.menu-lateral a:not(.impact-link):hover{padding-right:45px; background:#000; transform:translateX(8px)}
 
-/* BRILHO AZUL NO MENU IMPACT */
+/* IMPACT LINK - BRILHO AZUL NO HOVER */
 .menu-lateral .impact-link{
   background: #00bfff; color:#000; 
   animation: glowBlue 1.5s infinite alternate;
+}
+.menu-lateral .impact-link:hover {
+    background: #00bfff; /* Mantém azul */
+    box-shadow: 0 0 35px rgba(0, 191, 255, 1); /* Brilha mais no hover */
+    transform: translateX(8px);
+    padding-right: 45px;
 }
 @keyframes glowBlue { 
   from { box-shadow: 0 0 5px rgba(0, 191, 255, 0.6); } 
@@ -65,8 +71,7 @@ header img.logo {height: 80px; width: auto;}
   background: #000; padding: 12px 25px; border-radius: 4px;
 }
 
-/* SERVIÇOS - LISTA COMPLETA */
-.servicos-titulo{text-align:center; padding: 150px 0 60px; font-size:2.5rem; text-transform: uppercase; font-weight: 800;}
+/* SERVIÇOS */
 .servicos-grid{padding:0 8% 120px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;}
 .servico-card{
   border: 1px solid #eaeaea; padding: 40px 20px; text-align:center; 
@@ -74,7 +79,7 @@ header img.logo {height: 80px; width: auto;}
   display: flex; flex-direction: column; align-items: center;
 }
 .servico-card:hover{background: #000; color: #fff; transform: translateY(-10px); border-color: #000;}
-.servico-card i{font-size: 35px; margin-bottom: 15px; transition: .3s;}
+.servico-card i{font-size: 35px; margin-bottom: 15px;}
 .servico-card:hover i{color: #00bfff;}
 
 /* PRODUTOS POLAROID */
@@ -84,13 +89,10 @@ header img.logo {height: 80px; width: auto;}
   box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
   border: 1px solid #eee; transition: .4s; transform: rotate(-1.5deg);
 }
-.polaroid:nth-child(even) { transform: rotate(2deg); }
-.polaroid:hover{ transform: rotate(0deg) translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+.polaroid:hover{ transform: rotate(0deg) translateY(-10px); }
 .polaroid img{ width: 100%; height: 260px; object-fit: cover; margin-bottom: 20px; border: 1px solid #f0f0f0; }
-.polaroid h3 { font-size: 1.1rem; text-transform: uppercase; margin-bottom: 5px; }
-.polaroid .preco { font-weight: 900; font-size: 1.2rem; color: #000; }
 
-/* WEB & DESIGN - BOTÃO HOVER INVERTIDO */
+/* WEB & DESIGN - AJUSTE E-COMMERCE */
 .btn-solicitar {
   display: inline-block; margin-top: 20px; padding: 12px 30px; 
   background: #000; color: #fff; border: 2px solid #000;
@@ -98,11 +100,14 @@ header img.logo {height: 80px; width: auto;}
 }
 .btn-solicitar:hover { background: #fff; color: #000; }
 
-/* IMPACT SYSTEM - BOTÃO PULSANTE */
+/* IMPACT SYSTEM - ANIMAÇÕES */
 .impact-container{padding:120px 8%; text-align: center; border-top: 1px solid #eee;}
 .impact-grid{display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px;}
-.impact-card{ background: #00bfff; color: #fff; padding: 60px 30px; border-radius: 20px; transition: .4s; }
-.impact-card i { font-size: 45px; margin-bottom: 20px; }
+.impact-card{ 
+    background: #00bfff; color: #fff; padding: 60px 30px; border-radius: 20px; 
+    transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+.impact-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,191,255,0.4); }
 .impact-btn{
     display: inline-block; margin-top: 40px; padding: 18px 45px;
     background: #000; color: #fff; text-decoration: none;
@@ -116,11 +121,9 @@ header img.logo {height: 80px; width: auto;}
 }
 
 /* QUEM SOMOS - BORDA PRETA */
-.quem-somos-section { padding: 120px 8%; background: #fdfdfd; }
 .quem-box-premium {
     max-width: 1000px; margin: 0 auto; background: #fff;
-    padding: 60px; border-radius: 40px; 
-    border: 2px solid #000; /* BORDA PRETA SOLICITADA */
+    padding: 60px; border-radius: 40px; border: 2px solid #000;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
 }
 
@@ -138,7 +141,6 @@ header img.logo {height: 80px; width: auto;}
 }
 
 footer{padding:80px 0; background:#000; color:#fff; text-align:center;}
-@media(max-width:768px){ .menu-lateral{display:none;} .quem-box-premium{padding: 35px 20px;} }
 </style>
 </head>
 
@@ -164,7 +166,7 @@ footer{padding:80px 0; background:#000; color:#fff; text-align:center;}
 </section>
 
 <section id="servicos">
-  <h2 class="servicos-titulo reveal">Serviços Profissionais</h2>
+  <h2 style="text-align:center; padding: 150px 0 60px; font-size:2.5rem; text-transform: uppercase; font-weight: 800;" class="reveal">Serviços Profissionais</h2>
   <div class="servicos-grid">
     <a href="https://wa.me/5537999365150" target="_blank" class="servico-card reveal"><i class="fab fa-windows"></i><h3>Formatações</h3></a>
     <a href="https://wa.me/5537999365150" target="_blank" class="servico-card reveal"><i class="fas fa-house-laptop"></i><h3>Visita técnica</h3></a>
@@ -175,16 +177,18 @@ footer{padding:80px 0; background:#000; color:#fff; text-align:center;}
     <a href="https://wa.me/5537999365150" target="_blank" class="servico-card reveal"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3></a>
     <a href="https://wa.me/5537999365150" target="_blank" class="servico-card reveal"><i class="fas fa-print"></i><h3>Tintas e Toner</h3></a>
     <a href="https://wa.me/5537999365150" target="_blank" class="servico-card reveal"><i class="fas fa-plug"></i><h3>Eletrônicos</h3></a>
-    <a href="https://wa.me/5537998400037" target="_blank" class="servico-card reveal"><i class="fas fa-code"></i><h3>Criação de sites</h3></a>
+    <a href="https://wa.me/5537998400037?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20criação%20e%20desenvolvimento%20de%20sites!" target="_blank" class="servico-card reveal">
+        <i class="fas fa-code"></i><h3>Criação de sites</h3>
+    </a>
   </div>
 </section>
 
-<section id="produtos">
+<section id="produtos" style="padding:100px 0;">
   <h2 style="text-align:center; margin-bottom:70px; font-size: 2.2rem; text-transform: uppercase; font-weight: 800;" class="reveal">Produtos</h2>
   <div class="grid-polaroid">
-    <div class="polaroid reveal"><img src="p1.jpg" alt="Foto"><h3>PC Escritório</h3><p>Descrição do produto.</p><span class="preco">R$ 0,00</span></div>
-    <div class="polaroid reveal"><img src="p2.jpg" alt="Foto"><h3>Setup Gamer</h3><p>Descrição do produto.</p><span class="preco">R$ 0,00</span></div>
-    <div class="polaroid reveal"><img src="p3.jpg" alt="Foto"><h3>Acessórios</h3><p>Descrição do produto.</p><span class="preco">R$ 0,00</span></div>
+    <div class="polaroid reveal"><img src="p1.jpg" alt="Foto"><h3>PC Escritório</h3><span style="font-weight:900;">R$ 0,00</span></div>
+    <div class="polaroid reveal"><img src="p2.jpg" alt="Foto"><h3>Setup Gamer</h3><span style="font-weight:900;">R$ 0,00</span></div>
+    <div class="polaroid reveal"><img src="p3.jpg" alt="Foto"><h3>Acessórios</h3><span style="font-weight:900;">R$ 0,00</span></div>
   </div>
 </section>
 
@@ -192,7 +196,7 @@ footer{padding:80px 0; background:#000; color:#fff; text-align:center;}
   <h2 class="reveal" style="text-align:center; margin-bottom:60px; font-size: 2.2rem; text-transform: uppercase; font-weight: 800;">Web & Design</h2>
   <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:40px">
     <div class="servico-card reveal" style="padding: 60px 40px;"><h3>Institucionais</h3><a href="https://wa.me/5537998400037" target="_blank" class="btn-solicitar">SOLICITAR</a></div>
-    <div class="servico-card reveal" style="padding: 60px 40px;"><h3>E-commerce</h3><a href="https://wa.me/5537998400037" target="_blank" class="btn-solicitar">SOLICITAR</a></div>
+    <div class="servico-card reveal" style="padding: 60px 40px; background: #fff;"><h3>E-commerce</h3><a href="https://wa.me/5537998400037" target="_blank" class="btn-solicitar">SOLICITAR</a></div>
     <div class="servico-card reveal" style="padding: 60px 40px;"><h3>Landing Pages</h3><a href="https://wa.me/5537998400037" target="_blank" class="btn-solicitar">SOLICITAR</a></div>
   </div>
 </section>
@@ -208,7 +212,7 @@ footer{padding:80px 0; background:#000; color:#fff; text-align:center;}
   <a href="https://wa.me/5537999213140" target="_blank" class="impact-btn reveal">QUERO SABER MAIS</a>
 </section>
 
-<section id="quem" class="quem-somos-section">
+<section id="quem" style="padding: 120px 8%;">
   <div class="quem-box-premium reveal">
     <h2 style="text-align:center; font-weight:900; text-transform:uppercase; margin-bottom:30px;">Quem Somos</h2>
     <p>Com 18 anos de experiência em informática e 9 anos de atuação com loja física, somos especializados em serviços em informática em geral, oferecendo soluções completas em tecnologia para nossos clientes.</p>
