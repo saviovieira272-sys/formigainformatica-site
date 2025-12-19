@@ -48,13 +48,13 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      border:1px solid rgba(0,0,0,0.55);
+      border:1px solid rgba(255,255,255,0.1);
       border-radius:30px;
       font-size:14px;
       font-weight:700;
-      background:rgba(0,0,0,0.72);
+      background:rgba(0,0,0,0.75);
       backdrop-filter:blur(8px);
-      transition:.55s cubic-bezier(0.22,1,0.36,1)
+      transition:.3s ease;
     }
 
     .menu-lateral a:hover{
@@ -64,95 +64,76 @@
       transform:translateX(6px)
     }
 
-    .menu-lateral a.active{
-      background:#000;
-      box-shadow:0 0 0 2px rgba(0,0,0,.9), 0 10px 28px rgba(0,0,0,.45)
-    }
-
     .menu-lateral .impact-link{
-      background: rgba(0,191,255,0.85);
-      border:1px solid rgba(0,191,255,0.9);
+      background: #00bfff;
       color:#000;
+      border:none;
     }
 
-    .menu-lateral .impact-link:hover{
-      background: rgba(0,191,255,1);
-      box-shadow:0 10px 26px rgba(0,191,255,0.6);
-    }
-
-    /* HEADER AJUSTADO (MEIA LUA) */
+    /* CABEÇALHO MEIA LUA AJUSTADO */
     header{
-      height: 180px; /* Aumentado para comportar o logo maior */
+      height: 220px; /* Altura maior para o logo respirar */
       display:flex;
-      align-items: flex-start; /* Alinha o conteúdo ao topo */
+      align-items: center; 
       justify-content:center;
-      background:rgba(0,0,0,0.92);
-      /* Curvatura mais suave e ampla para o logo aparecer */
-      clip-path: ellipse(80% 100% at 50% 0%); 
-      position:fixed;
-      top:0; left:0; right:0;
-      z-index:999;
-      transition:all .5s ease;
-      padding-top: 20px;
-    }
-
-    header.hidden{
-      top:-180px;
-      opacity: 0;
+      background:#111;
+      /* Curvatura corrigida para não cobrir o conteúdo abaixo */
+      clip-path: ellipse(100% 70% at 50% 25%);
+      position: relative;
+      z-index: 10;
     }
 
     header img {
-      height: auto;
-      max-height: 100px; /* Logo maior agora */
+      max-height: 120px; /* Logo bem maior agora */
       width: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
+      margin-bottom: 40px; /* Sobe o logo para longe da borda curva */
     }
 
     /* HERO */
-    .hero{position:relative;height:90vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
-    .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(255,255,255,.6), rgba(255,255,255,.85));z-index:1}
+    .hero{position:relative;height:80vh;display:flex;align-items:center;justify-content:center; margin-top: -80px;}
     .hero-content{position:relative;z-index:2;text-align:center}
     .hero-content h2{font-size:42px;margin-bottom:10px;color:#fff;background:#000;padding:14px 26px;border-radius:999px;box-shadow:0 0 25px rgba(0,0,0,.35)}
-    .hero-content p{margin-top:12px;font-weight:500;opacity:.85; color: #000;}
+    .hero-content p{margin-top:12px;font-weight:500; color: #333;}
 
     /* SERVIÇOS */
     .servicos{padding:80px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;justify-items:center;}
-    .servico{border:1px solid #000;padding:20px;text-align:center;transition:.4s;cursor:pointer;width:200px; background: #fff;}
+    .servico{border:1px solid #000;padding:20px;text-align:center;transition:.4s;width:200px; background: #fff;}
     .servico i{font-size:40px;margin-bottom:15px}
-    .servico:hover{transform:scale(1.06);box-shadow:0 0 25px rgba(0,0,0,.35)}
+    .servico:hover{transform:scale(1.06);box-shadow:0 0 25px rgba(0,0,0,.1)}
     .servico a{color:#000;text-decoration:none;display:block;margin-top:10px;font-weight:600;}
-    .servico h3{font-size: 16px;}
-    .servico.criacao-sites{grid-column:1/-1;}
 
     /* PRODUTOS */
     .produtos{padding:80px 8%}
     .produtos h2{text-align:center;margin-bottom:40px}
     .produtos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
-    .produto{border:1px solid #000;padding:20px;transition:.3s; background: #fff;}
-    .produto img{width:100%;height:160px;background:#eee;margin-bottom:10px; display: block;}
+    .produto{border:1px solid #000;padding:20px;text-align:center; background:#fff}
+    .produto img{width:100%;height:160px;background:#eee;margin-bottom:10px;object-fit:cover}
 
     /* QUEM SOMOS */
     .quem-somos{padding:80px 8%;display:flex;justify-content:center}
-    .quem-box{max-width:800px;background:rgba(255,255,255,.8);border:1px solid #000;padding:40px;line-height:1.7}
+    .quem-box{max-width:800px;background:rgba(255,255,255,0.9);border:1px solid #000;padding:40px;line-height:1.7; text-align:center}
 
-    /* RODAPÉ */
-    footer {
-        background: #000;
-        color: #fff;
-        padding: 40px 20px;
-        text-align: center;
-    }
+    /* SEÇÃO SITES (RESTAURADA) */
+    .dev{padding:80px 8%; border-top:1px solid #ddd; text-align:center}
+    .dev-grid{display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:30px}
+    .dev-item{border:1px solid #000; padding:20px; width:250px; background:#fff}
+    .btn-dev{display:inline-block; margin-top:30px; padding:15px 40px; background:#000; color:#fff; border-radius:50px; text-decoration:none; font-weight:bold}
+
+    /* SEÇÃO IMPACT (RESTAURADA) */
+    .impact{padding:80px 8%; background:#f9f9f9; text-align:center; border-top:1px solid #ddd}
+    .impact-items{display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:30px}
+    .impact-item{flex:1 1 280px; background:#00bfff; padding:30px; border-radius:15px; box-shadow:0 10px 20px rgba(0,191,255,0.2)}
 
     /* WHATSAPP */
-    .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;z-index:1000;box-shadow: 0 4px 15px rgba(0,0,0,0.3);}
+    .whatsapp{position:fixed;right:25px;bottom:25px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:1000;box-shadow: 0 5px 15px rgba(0,0,0,0.2);}
+
+    footer{background:#111; color:#fff; padding:40px; text-align:center; font-size:14px}
 
     @media(max-width:768px){
-        header{height:140px}
-        header img{max-height:70px}
-        .hero-content h2{font-size:26px}
-        .menu-lateral{display:none}
+      header{height:160px; clip-path: ellipse(120% 80% at 50% 10%);}
+      header img{max-height:70px}
+      .menu-lateral{display:none}
+      .hero-content h2{font-size:28px}
     }
   </style>
 </head>
@@ -167,12 +148,11 @@
   <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
 
-<header id="header">
+<header>
   <img src="logobrancavert.png" alt="Formiga Informática">
 </header>
 
 <section class="hero" id="inicio">
-  <video autoplay muted loop><source src="video-informatica.mp4" type="video/mp4"></video>
   <div class="hero-content">
     <h2>Tecnologia que resolve</h2>
     <p>Soluções completas em informática</p>
@@ -183,14 +163,7 @@
   <div class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
   <div class="servico"><i class="fas fa-house-laptop"></i><h3>Visita Técnica</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
   <div class="servico"><i class="fas fa-download"></i><h3>Instalação de Programas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-tools"></i><h3>Conserto de Computadores</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-laptop"></i><h3>Reparo de Carcaças</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-microchip"></i><h3>Reparo de Placas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-store"></i><h3>Venda de Computadores</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-print"></i><h3>Tintas e Toner</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-plug"></i><h3>Eletrônicos</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico criacao-sites"><i class="fas fa-globe"></i><h3>Criação de Sites</h3></div>
+  <div class="servico"><i class="fas fa-tools"></i><h3>Conserto de PCs</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
 </section>
 
 <section id="produtos" class="produtos">
@@ -205,36 +178,37 @@
 <section id="quem" class="quem-somos">
   <div class="quem-box">
     <h2>Quem Somos</h2>
-    <p>Com 18 anos de experiência em informática e 9 anos de atuação com loja física, somos especializados em serviços em informática em geral.</p>
-    <p>Atuamos também com venda de produtos, criação de sites e sistemas de gestão com emissão de notas fiscais para empresas.</p>
-    <p>Nosso compromisso é com transparência, confiança, qualidade e preço justo.</p>
+    <p>Com 18 anos de experiência em informática e 9 anos de atuação com loja física, somos especializados em soluções tecnológicas de alta qualidade.</p>
   </div>
+</section>
+
+<section id="dev" class="dev">
+  <h2>Criação de Sites e Sistemas</h2>
+  <div class="dev-grid">
+    <div class="dev-item"><h4>Sites Institucionais</h4><p>Sua empresa na internet.</p></div>
+    <div class="dev-item"><h4>Lojas Virtuais</h4><p>Venda seus produtos online.</p></div>
+    <div class="dev-item"><h4>Sistemas Web</h4><p>Gestão personalizada.</p></div>
+  </div>
+  <a href="https://wa.me/5537999365150" class="btn-dev">Solicitar Orçamento</a>
+</section>
+
+<section id="impact" class="impact">
+  <img src="impactweb.png" alt="Impact System" style="height:50px; margin-bottom:20px;">
+  <h2>Impact System</h2>
+  <div class="impact-items">
+    <div class="impact-item"><h4>Fiscal</h4><p>Controle completo de impostos e NF-e.</p></div>
+    <div class="impact-item"><h4>Estoque</h4><p>Gestão inteligente de produtos.</p></div>
+    <div class="impact-item"><h4>Financeiro</h4><p>Fluxo de caixa e contas a pagar.</p></div>
+  </div>
+  <a href="https://wa.me/5537999365150" class="btn-dev" style="background:#00bfff; color:#000">Quero Saber Mais</a>
 </section>
 
 <a class="whatsapp" href="https://wa.me/5537999365150" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <footer>
   <p>Rua Quintino Bocaiúva, 105 – Centro – Formiga/MG</p>
-  <p>Formiga Informática • Tecnologia que trabalha a favor do seu dia a dia</p>
+  <p>© 2025 Formiga Informática - Todos os direitos reservados.</p>
 </footer>
-
-<script>
-  let lastScroll = 0;
-  const header = document.getElementById('header');
-  const menu = document.querySelector('.menu-lateral');
-
-  window.addEventListener('scroll',()=>{
-    const current = window.scrollY;
-    if(current > lastScroll && current > 100){
-      header.classList.add('hidden');
-      menu.classList.add('hide');
-    } else {
-      header.classList.remove('hidden');
-      menu.classList.remove('hide');
-    }
-    lastScroll = current;
-  });
-</script>
 
 </body>
 </html>
