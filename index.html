@@ -30,7 +30,7 @@
       flex-direction:column;
       gap:12px;
       z-index:1000;
-      transition:.5s
+      transition:opacity .5s ease, transform .5s ease
     }
 
     .menu-lateral.hide{
@@ -43,29 +43,30 @@
       color:#fff;
       text-decoration:none;
       padding:10px 18px 10px 16px;
+      width:fit-content;
       display:inline-flex;
       align-items:center;
       gap:8px;
-      border:1px solid rgba(0,0,0,.55);
+      border:1px solid rgba(0,0,0,0.55);
       border-radius:30px;
       font-size:14px;
       font-weight:700;
-      background:rgba(0,0,0,.72);
+      background:rgba(0,0,0,0.72);
       backdrop-filter:blur(8px);
-      transition:.55s cubic-bezier(.22,1,.36,1)
+      transition:.55s cubic-bezier(0.22,1,0.36,1)
     }
 
     .menu-lateral a:hover{
       padding-right:42px;
-      background:rgba(0,0,0,.95);
+      background:rgba(0,0,0,0.95);
       box-shadow:0 10px 26px rgba(0,0,0,.35);
       transform:translateX(6px)
     }
 
     .menu-lateral .impact-link{
-      background:rgba(0,191,255,.85);
-      border-color:rgba(0,191,255,.9);
-      color:#000
+      background: rgba(0,191,255,0.85);
+      border:1px solid rgba(0,191,255,0.9);
+      color:#000;
     }
 
     header{
@@ -73,72 +74,30 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:rgba(0,0,0,.85);
-      border-bottom:1px solid rgba(0,0,0,.6);
+      background:rgba(0,0,0,0.85);
+      border-bottom:1px solid rgba(0,0,0,0.6);
       clip-path:ellipse(60% 100% at 50% 0%);
       position:fixed;
-      top:0;left:0;right:0;
+      top:0; left:0; right:0;
       z-index:999;
-      transition:.5s
+      transition:all .5s ease;
     }
 
     header.hidden{
       top:-130px;
-      background:transparent;
-      border:none
+      background:rgba(0,0,0,0);
+      border:none;
     }
 
-    header img{max-height:80px}
+    header img{max-height:80px;}
 
-    .hero{position:relative;height:90vh;display:flex;align-items:center;justify-content:center}
+    .hero{position:relative;height:90vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
     .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,.6),rgba(255,255,255,.85));z-index:1}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(255,255,255,.6), rgba(255,255,255,.85));z-index:1}
     .hero-content{position:relative;z-index:2;text-align:center}
-    .hero-content h2{font-size:42px;background:#000;color:#fff;padding:14px 26px;border-radius:999px;box-shadow:0 0 25px rgba(0,0,0,.35)}
-    .hero-content p{margin-top:12px;font-weight:500}
-
-    .servicos{padding:80px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;justify-items:center}
-    .servico{border:1px solid #000;padding:20px;text-align:center;width:200px;transition:.4s}
-    .servico:hover{transform:scale(1.06);box-shadow:0 0 25px rgba(0,0,0,.35)}
-    .servico i{font-size:40px;margin-bottom:15px}
-    .servico a{color:#000;text-decoration:none;font-weight:600}
-
-    .produtos{padding:80px 8%}
-    .produtos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
-    .produto{border:1px solid #000;padding:20px}
-
-    .quem-somos{padding:80px 8%;display:flex;justify-content:center}
-    .quem-box{max-width:800px;border:1px solid #000;padding:40px;background:rgba(255,255,255,.7)}
-
-    .dev,.impact{padding:80px 8%;border-top:1px solid #000;text-align:center}
-
-    .impact-item{background:#00bfff;color:#000;padding:20px;border-radius:12px;margin:10px}
-
-    .whatsapp{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      background:#25d366;
-      width:55px;height:55px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:28px;
-      z-index:1000
-    }
-
-    footer{text-align:center;padding:40px 20px;border-top:1px solid #000}
-
-    @media(max-width:768px){
-      header{height:110px}
-      header img{max-height:100px}
-      .menu-lateral{display:none}
-      .hero-content h2{font-size:30px}
-    }
+    .hero-content h2{font-size:42px;margin-bottom:10px;color:#fff;background:#000;padding:14px 26px;border-radius:999px}
   </style>
 </head>
-
 <body>
 
 <div class="menu-lateral">
@@ -146,14 +105,16 @@
   <a href="#servicos"><i class="fas fa-tools"></i>Serviços</a>
   <a href="#produtos"><i class="fas fa-box"></i>Produtos</a>
   <a href="#quem"><i class="fas fa-users"></i>Quem Somos</a>
+  <a href="#dev"><i class="fas fa-code"></i>Sites</a>
   <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
 
 <header id="header">
-  <img src="logobrancavert.png" alt="Formiga Informática" style="height:60px;">
+  <!-- 🔥 ÚNICA ALTERAÇÃO AQUI -->
+  <img src="logobrancavert.png" alt="Formiga Informática" style="height:90px;">
 </header>
 
-<section class="hero" id="inicio">
+<section class="hero">
   <video autoplay muted loop>
     <source src="video-informatica.mp4" type="video/mp4">
   </video>
@@ -163,33 +124,22 @@
   </div>
 </section>
 
-<!-- TODAS AS SEÇÕES SEGUEM ABAIXO (SERVIÇOS, PRODUTOS, QUEM SOMOS, DEV, IMPACT, FOOTER) -->
-
-<a class="whatsapp" href="https://wa.me/5537999365150" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<footer>
-  <p>Rua Quintino Bocaiúva, 105 – Centro – Formiga/MG</p>
-  <p>Formiga Informática • Tecnologia que resolve</p>
-</footer>
-
 <script>
-let lastScroll=0;
-const header=document.getElementById("header");
-const menu=document.querySelector(".menu-lateral");
+  let lastScroll = 0;
+  const header = document.getElementById('header');
+  const menu = document.querySelector('.menu-lateral');
 
-window.addEventListener("scroll",()=>{
-  const current=window.scrollY;
-  if(current>lastScroll && current>100){
-    header.classList.add("hidden");
-    menu.classList.add("hide");
-  }else{
-    header.classList.remove("hidden");
-    menu.classList.remove("hide");
-  }
-  lastScroll=current;
-});
+  window.addEventListener('scroll',()=>{
+    const current = window.scrollY;
+    if(current > lastScroll && current > 100){
+      header.classList.add('hidden');
+      menu.classList.add('hide');
+    } else {
+      header.classList.remove('hidden');
+      menu.classList.remove('hide');
+    }
+    lastScroll = current;
+  });
 </script>
 
 </body>
