@@ -5,24 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Formiga Informática</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif; scroll-behavior: smooth;}
 body{background:#fff;color:#000;overflow-x:hidden; padding-top: 100px;}
 
-/* TEXTURA DE FUNDO */
+/* TEXTURA DE FUNDO SUTIL */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   background:url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-  opacity:.15;
+  opacity:.1;
   z-index:-1
 }
 
-/* MENU LATERAL */
+/* MENU LATERAL LIMPO */
 .menu-lateral{
   position:fixed;
   top:50%;left:15px;
@@ -31,82 +31,139 @@ body::before{
   flex-direction:column;
   gap:12px;
   z-index:1000;
-  transition:opacity .5s ease, transform .5s ease
+  transition:all .5s ease;
 }
-.menu-lateral.hide{opacity:0; transform:translate(-15px,-50%); pointer-events:none}
+.menu-lateral.hide{opacity:0; transform:translate(-20px,-50%); pointer-events:none}
 .menu-lateral a{
-  color:#fff; text-decoration:none; padding:10px 18px; width:fit-content;
-  display:inline-flex; align-items:center; gap:8px; border-radius:30px;
-  font-size:14px; font-weight:700; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); transition:.3s ease;
+  color:#fff; text-decoration:none; padding:12px 20px; width:fit-content;
+  display:inline-flex; align-items:center; gap:10px; border-radius:30px;
+  font-size:13px; font-weight:600; background:rgba(0,0,0,0.8); backdrop-filter:blur(10px); transition:.3s ease;
+  letter-spacing: 0.5px;
 }
-.menu-lateral a:hover{padding-right:40px; background:#000; transform:translateX(6px)}
+.menu-lateral a:hover{padding-right:45px; background:#000; transform:translateX(8px)}
 .menu-lateral .impact-link{background: #00bfff; color:#000;}
-.menu-lateral .impact-link:hover {box-shadow: 0 0 20px #00bfff;}
 
 /* HEADER */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: 100px; background: #000;
+  height: 90px; background: #000;
   display: flex; align-items: center; justify-content: flex-start;
   padding: 0 8%; z-index: 999;
   transition: transform 0.4s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 header.hidden {transform: translateY(-100%);}
-header img.logo {height: 80px; width: auto;}
+header img.logo {height: 70px; width: auto;}
 
-/* HERO */
-.hero{position:relative;height:50vh;display:flex;align-items:center;justify-content:center; overflow:hidden;}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2}
-.hero-content{position:relative;z-index:2;text-align:center;}
-.hero-content h2{font-size:48px;color:#fff;background:#000;padding:15px 40px;border-radius:8px;}
+/* HERO - ESPAÇO PARA VÍDEO */
+.hero{
+  position:relative;
+  height: 90vh; /* Quase a tela cheia para o vídeo */
+  display:flex;
+  align-items:center;
+  justify-content:center; 
+  overflow:hidden;
+  background: #000;
+}
+.hero video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.4; /* Ajuste aqui a visibilidade do seu vídeo */
+}
+.hero-content{position:relative; z-index:2; text-align:center;}
+.hero-content h2{
+  font-size:52px; color:#fff; font-weight: 800; 
+  text-transform: uppercase; letter-spacing: -1px;
+}
 
-/* SEÇÃO SERVIÇOS */
-.servicos-titulo{text-align:center; padding-top:60px; font-size:2.5rem; text-transform: uppercase;}
-.servicos{padding:40px 8% 80px; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
+/* SEÇÃO SERVIÇOS - MAIS ESPAÇO NO TOPO */
+.servicos-titulo{
+  text-align:center; 
+  padding: 120px 0 40px; /* Aumentei o espaço inicial */
+  font-size:2.2rem; 
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.servicos{padding:0 8% 100px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:25px;}
 .servico-link{text-decoration: none; color: inherit;}
-.servico{border:2px solid #000; padding:40px 15px; text-align:center; transition:.4s; background:#fff; height: 100%; border-radius: 4px; display:flex; flex-direction:column; align-items:center; justify-content:center;}
-.servico:hover{transform:translateY(-5px); background: #000; color: #fff; box-shadow:0 10px 20px rgba(0,0,0,0.15);}
-.servico i{font-size:35px; margin-bottom:15px; color:#000; transition: .4s;}
-.servico:hover i{color:#fff;}
-.servico h3{font-size: 0.95rem; font-weight: 700; text-transform: uppercase;}
+.servico{
+  border: 1px solid #eee; 
+  padding: 45px 25px; 
+  text-align:center; 
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+  background:#fff; 
+  height: 100%; 
+  border-radius: 12px; 
+  display:flex; 
+  flex-direction:column; 
+  align-items:center; 
+  justify-content:center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.servico:hover{
+  transform:translateY(-10px); 
+  background: #000; 
+  color: #fff; 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border-color: #000;
+}
+.servico i{font-size:32px; margin-bottom:20px; color:#000; transition: .4s;}
+.servico:hover i{color:#00bfff; transform: scale(1.1);}
+.servico h3{font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;}
 
-/* PRODUTOS E SITES (MESMO ESTILO) */
-.padrao-secao{padding:80px 8%; border-top:1px solid #000;}
-.padrao-secao h2{text-align:center; margin-bottom:50px; font-size: 2.5rem; text-transform: uppercase;}
-.grid-padrao{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px}
-.card-padrao{border:2px solid #000; padding:50px 30px; transition:.3s; background:#fff; text-align:center;}
-.card-padrao:hover{background: #000; color: #fff; transform: scale(1.02); border-color: #000;}
-.card-padrao h3{font-size: 1.5rem; margin-bottom: 10px; text-transform: uppercase;}
+/* PADRÃO SITES E PRODUTOS */
+.padrao-secao{padding:100px 8%; border-top:1px solid #f0f0f0;}
+.padrao-secao h2{text-align:center; margin-bottom:60px; font-size: 2.2rem; text-transform: uppercase; font-weight: 800;}
+.grid-padrao{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:35px}
+.card-padrao{
+  border: 1px solid #eee; padding:60px 40px; transition:.4s; 
+  background:#fff; text-align:center; border-radius: 16px;
+}
+.card-padrao:hover{
+  background: #000; color: #fff; transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+.card-padrao h3{font-size: 1.4rem; margin-bottom: 15px; text-transform: uppercase; font-weight: 700;}
+.card-padrao p{font-size: 0.95rem; opacity: 0.8; line-height: 1.6;}
 
-/* IMPACT SYSTEM - SEM BORDAS E TEXTO BRANCO */
-.impact-container{padding:80px 8%; background: #fff; text-align: center; border-top: 1px solid #000;}
-.impact-grid{display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px;}
-.impact-card{background: #00bfff; color: #fff; padding: 45px; border-radius: 8px; transition: .3s;}
-.impact-card:hover{transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,191,255,0.4);}
-.impact-card i, .impact-card h3, .impact-card p {color: #fff !important;}
-.impact-card i{font-size: 45px; margin-bottom: 20px;}
+/* IMPACT SYSTEM */
+.impact-container{padding:100px 8%; background: #fff; text-align: center; border-top: 1px solid #f0f0f0;}
+.impact-grid{display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px;}
+.impact-card{background: #00bfff; color: #fff; padding: 50px 30px; border-radius: 20px; transition: .4s; border: none;}
+.impact-card:hover{transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,191,255,0.3);}
+.impact-card i{font-size: 40px; margin-bottom: 25px;}
+.impact-card h3{font-size: 1.3rem; text-transform: uppercase; margin-bottom: 15px;}
 
-/* QUEM SOMOS - ÚLTIMA SEÇÃO */
-.quem-somos{padding:100px 8%; display:flex; justify-content:center; border-top: 1px solid #000; background: #fafafa;}
-.quem-box{max-width:900px; background:#fff; border:2px solid #000; padding:60px; line-height:1.8; text-align:center; box-shadow: 15px 15px 0px #000;}
-.quem-box h2{margin-bottom:25px; font-size:2.2rem; text-transform:uppercase;}
-
-/* BOTÃO CTA */
-.btn-cta{display:inline-block; margin-top:30px; padding:18px 45px; background:#000; color:#fff; text-decoration:none; font-weight:700; border-radius:4px; transition: .3s; text-transform: uppercase;}
-.btn-cta:hover{transform: scale(1.05);}
+/* QUEM SOMOS */
+.quem-somos{padding:120px 8%; display:flex; justify-content:center; background: #fcfcfc;}
+.quem-box{
+  max-width:850px; background:#fff; padding:70px; 
+  text-align:center; border-radius: 24px;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.05);
+}
+.quem-box h2{margin-bottom:30px; font-size:2rem; text-transform:uppercase; font-weight: 800;}
+.quem-box p{font-size:1.05rem; line-height:1.8; color:#444; margin-bottom: 20px;}
 
 /* WHATSAPP */
-.whatsapp-float{position:fixed;right:25px;bottom:25px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;z-index:1000;box-shadow:0 10px 20px rgba(0,0,0,0.2);}
+.whatsapp-float{
+  position:fixed; right:30px; bottom:30px; background:#25d366; color:#fff; 
+  width:60px; height:60px; border-radius:50%; display:flex; align-items:center; 
+  justify-content:center; font-size:30px; z-index:1000; box-shadow:0 10px 25px rgba(37,211,102,0.3);
+  transition: .3s;
+}
+.whatsapp-float:hover{transform: scale(1.15) rotate(10deg);}
 
-footer{padding:60px; background:#000; color:#fff; text-align:center}
+footer{padding:80px 0; background:#000; color:#fff; text-align:center; font-size: 14px;}
 
 @media(max-width:768px){
-  header{height:80px; padding: 0 5%;}
-  header img.logo{height:50px;}
-  .hero-content h2{font-size:28px;}
-  .menu-lateral{display:none}
+  header{height:75px;}
+  header img.logo{height:55px;}
+  .hero-content h2{font-size:32px;}
+  .servicos-titulo{padding-top: 80px;}
+  .quem-box{padding: 40px 20px;}
 }
 </style>
 </head>
@@ -118,28 +175,31 @@ footer{padding:60px; background:#000; color:#fff; text-align:center}
 </header>
 
 <div class="menu-lateral" id="menuLateral">
-  <a href="#inicio"><i class="fas fa-home"></i>Início</a>
-  <a href="#servicos"><i class="fas fa-tools"></i>Serviços</a>
-  <a href="#produtos"><i class="fas fa-box"></i>Produtos</a>
-  <a href="#sites"><i class="fas fa-code"></i>Sites</a>
-  <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
-  <a href="#quem"><i class="fas fa-users"></i>Quem Somos</a>
+  <a href="#inicio"><i class="fas fa-home"></i>INÍCIO</a>
+  <a href="#servicos"><i class="fas fa-tools"></i>SERVIÇOS</a>
+  <a href="#produtos"><i class="fas fa-box"></i>PRODUTOS</a>
+  <a href="#sites"><i class="fas fa-code"></i>SITES</a>
+  <a href="#impact" class="impact-link"><i class="fas fa-server"></i>IMPACT SYSTEM</a>
 </div>
 
 <section id="inicio" class="hero">
-  <video autoplay muted loop><source src="video-informatica.mp4" type="video/mp4"></video>
-  <div class="hero-content"><h2>Tecnologia que resolve</h2></div>
+  <video autoplay muted loop playsinline>
+    <source src="video-informatica.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h2>Tecnologia que resolve</h2>
+  </div>
 </section>
 
-<h2 id="servicos" class="servicos-titulo">Nossos Serviços</h2>
+<h2 id="servicos" class="servicos-titulo">Serviços Especializados</h2>
 <section class="servicos">
   <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3></div></a>
   <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-house-laptop"></i><h3>Visita técnica</h3></div></a>
   <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-download"></i><h3>Instalação de programas</h3></div></a>
   <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-laptop-medical"></i><h3>Conserto de computadores</h3></div></a>
-  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-hammer"></i><h3>Reparo de carcaças notebook</h3></div></a>
-  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-microchip"></i><h3>Reparo de placas notebook</h3></div></a>
-  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-shopping-cart"></i><h3>Venda de computadores</h3></div></a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-hammer"></i><h3>Reparo de carcaças</h3></div></a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-microchip"></i><h3>Reparo de placas</h3></div></a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-shopping-cart"></i><h3>Venda de máquinas</h3></div></a>
   <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3></div></a>
   <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-print"></i><h3>Tintas e Toner</h3></div></a>
   <a href="https://wa.me/5537999365150" target="_blank" class="servico-link"><div class="servico"><i class="fas fa-plug"></i><h3>Eletrônicos</h3></div></a>
@@ -150,38 +210,36 @@ footer{padding:60px; background:#000; color:#fff; text-align:center}
 <section id="produtos" class="padrao-secao">
   <h2>Produtos em Destaque</h2>
   <div class="grid-padrao">
-    <div class="card-padrao"><h3>Venda de Computadores</h3><p>Equipamentos novos e seminovos com garantia total.</p></div>
-    <div class="card-padrao"><h3>Linha PC Gamer</h3><p>Performance extrema com montagem personalizada.</p></div>
-    <div class="card-padrao"><h3>Suprimentos e Acessórios</h3><p>Tudo em periféricos, tintas e toners.</p></div>
+    <div class="card-padrao"><h3>Infraestrutura</h3><p>Montagem de máquinas profissionais para empresas e escritórios.</p></div>
+    <div class="card-padrao"><h3>Gaming</h3><p>Builds de alta performance com os melhores componentes do mercado.</p></div>
+    <div class="card-padrao"><h3>Periféricos</h3><p>Linha completa de mouses, teclados, toners e acessórios eletrônicos.</p></div>
   </div>
 </section>
 
 <section id="sites" class="padrao-secao" style="background: #fafafa;">
-  <h2>Criação de Sites</h2>
+  <h2>Web & Desenvolvimento</h2>
   <div class="grid-padrao">
-    <div class="card-padrao"><h3>Institucionais</h3><p>Apresente sua empresa ao mundo de forma profissional.</p></div>
-    <div class="card-padrao"><h3>Lojas Virtuais</h3><p>Venda seus produtos online 24 horas por dia.</p></div>
-    <div class="card-padrao"><h3>Landing Pages</h3><p>Páginas focadas em conversão e resultados.</p></div>
+    <div class="card-padrao"><h3>Institucionais</h3><p>Sites modernos, rápidos e adaptados para celulares.</p></div>
+    <div class="card-padrao"><h3>E-commerce</h3><p>Sua loja aberta 24h para vender em todo o Brasil.</p></div>
+    <div class="card-padrao"><h3>Landing Pages</h3><p>Foco total em converter visitantes em clientes reais.</p></div>
   </div>
-  <div style="text-align: center;"><a href="https://wa.me/5537999365150" class="btn-cta">ORÇAMENTO DE SITE</a></div>
 </section>
 
 <section id="impact" class="impact-container">
-  <img src="impactweb.png" alt="Impact System" style="height: 60px; margin-bottom: 10px;">
-  <h2>Sistemas de Gestão e Fiscal</h2>
+  <img src="impactweb.png" alt="Impact System" style="height: 50px; margin-bottom: 20px;">
+  <h2>Sistemas de Gestão Impact</h2>
   <div class="impact-grid">
-    <div class="impact-card"><i class="fas fa-file-signature"></i><h3>Emissão Fiscal</h3><p>NF-e e NFC-e simplificadas.</p></div>
-    <div class="impact-card"><i class="fas fa-store"></i><h3>Controle Comercial</h3><p>Estoque, Vendas e Clientes.</p></div>
-    <div class="impact-card"><i class="fas fa-coins"></i><h3>Financeiro</h3><p>Fluxo de caixa completo.</p></div>
+    <div class="impact-card"><i class="fas fa-file-invoice"></i><h3>Fiscal</h3><p>NF-e e NFC-e sem burocracia.</p></div>
+    <div class="impact-card"><i class="fas fa-cubes"></i><h3>Estoque</h3><p>Controle inteligente de mercadorias.</p></div>
+    <div class="impact-card"><i class="fas fa-vault"></i><h3>Financeiro</h3><p>Gestão completa de fluxo de caixa.</p></div>
   </div>
 </section>
 
 <section id="quem" class="quem-somos">
   <div class="quem-box">
-    <h2>Quem Somos</h2>
-    <p>Com 18 anos de experiência em informática e 9 anos de atuação com loja física, somos especializados em soluções completas em tecnologia.</p>
-    <p>Trabalhamos com venda de produtos, criação de sites e sistemas de gestão, ajudando negócios a crescerem com confiança.</p>
-    <p><strong>Nosso compromisso é com a transparência, qualidade e preço justo.</strong></p>
+    <h2>Nossa História</h2>
+    <p>Com 18 anos de experiência em informática e 9 anos com loja física em Formiga, somos referência em soluções tecnológicas.</p>
+    <p>Nosso compromisso é com a transparência, confiança e o preço justo, garantindo que sua necessidade seja resolvida com qualidade.</p>
   </div>
 </section>
 
@@ -189,7 +247,7 @@ footer{padding:60px; background:#000; color:#fff; text-align:center}
 
 <footer>
   <p>Rua Quintino Bocaiúva, 105 – Centro – Formiga/MG</p>
-  <p style="margin-top:10px; opacity:0.6;">© 2025 Formiga Informática</p>
+  <p style="margin-top:15px; opacity:0.5;">© 2025 Formiga Informática. Todos os direitos reservados.</p>
 </footer>
 
 <script>
@@ -198,7 +256,7 @@ const header = document.getElementById("header");
 const menu = document.getElementById("menuLateral");
 window.addEventListener("scroll", () => {
   const current = window.scrollY;
-  if (current > lastScroll && current > 80) { header.classList.add("hidden"); menu.classList.add("hide"); }
+  if (current > lastScroll && current > 100) { header.classList.add("hidden"); menu.classList.add("hide"); }
   else { header.classList.remove("hidden"); menu.classList.remove("hide"); }
   lastScroll = current;
 });
