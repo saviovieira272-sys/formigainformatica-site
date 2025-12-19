@@ -10,46 +10,34 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Inter',sans-serif;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+    body{background:#fff;color:#000;overflow-x:hidden}
 
-    body{
-      background:#fff;
-      color:#000;
-      overflow-x:hidden;
-    }
-
-    /* TEXTURA DE FUNDO */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       background:url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
       opacity:.25;
-      z-index:-1;
+      z-index:-1
     }
 
     /* MENU LATERAL */
     .menu-lateral{
       position:fixed;
-      top:50%;
-      left:15px;
+      top:50%;left:15px;
       transform:translateY(-50%);
       display:flex;
       flex-direction:column;
       gap:12px;
       z-index:1000;
-      transition:opacity .5s ease, transform .5s ease;
+      transition:.5s
     }
 
     .menu-lateral.hide{
       opacity:0;
       transform:translate(-15px,-50%);
-      pointer-events:none;
+      pointer-events:none
     }
 
     .menu-lateral a{
@@ -65,23 +53,23 @@
       font-weight:700;
       background:rgba(0,0,0,.72);
       backdrop-filter:blur(8px);
-      transition:.55s cubic-bezier(0.22,1,0.36,1);
+      transition:.55s cubic-bezier(.22,1,.36,1)
     }
 
     .menu-lateral a:hover{
       padding-right:42px;
       background:rgba(0,0,0,.95);
       box-shadow:0 10px 26px rgba(0,0,0,.35);
-      transform:translateX(6px);
+      transform:translateX(6px)
     }
 
     .menu-lateral .impact-link{
       background:rgba(0,191,255,.85);
       border-color:rgba(0,191,255,.9);
-      color:#000;
+      color:#000
     }
 
-    /* HEADER COM MEIA-LUA (INALTERADA) */
+    /* HEADER COM MEIA LUA (INALTERADO) */
     header{
       height:130px;
       display:flex;
@@ -91,123 +79,73 @@
       border-bottom:1px solid rgba(0,0,0,.6);
       clip-path:ellipse(60% 100% at 50% 0%);
       position:fixed;
-      top:0;
-      left:0;
-      right:0;
+      top:0;left:0;right:0;
       z-index:999;
-      transition:all .5s ease;
+      transition:.5s
     }
 
     header.hidden{
       top:-130px;
-      background:rgba(0,0,0,0);
-      border:none;
+      background:transparent;
+      border:none
     }
 
-    /* LOGO – AQUI É ONDE VOCÊ CONTROLA O TAMANHO */
+    /* LOGO GRANDE DE VERDADE */
     header .logo{
-      max-height:110px; /* <<< LOGO MAIOR */
+      max-height:125px;
       width:auto;
       object-fit:contain;
     }
 
     /* HERO */
-    .hero{
-      position:relative;
-      height:90vh;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
+    .hero{position:relative;height:90vh;display:flex;align-items:center;justify-content:center}
+    .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,.6),rgba(255,255,255,.85));z-index:1}
+    .hero-content{position:relative;z-index:2;text-align:center}
+    .hero-content h2{font-size:42px;background:#000;color:#fff;padding:14px 26px;border-radius:999px;box-shadow:0 0 25px rgba(0,0,0,.35)}
+    .hero-content p{margin-top:12px;font-weight:500}
 
-    .hero video{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      opacity:.25;
-    }
+    /* SERVIÇOS */
+    .servicos{padding:80px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;justify-items:center}
+    .servico{border:1px solid #000;padding:20px;text-align:center;width:200px;transition:.4s}
+    .servico:hover{transform:scale(1.06);box-shadow:0 0 25px rgba(0,0,0,.35)}
+    .servico i{font-size:40px;margin-bottom:15px}
+    .servico a{color:#000;text-decoration:none;font-weight:600}
 
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-        to bottom,
-        rgba(255,255,255,.6),
-        rgba(255,255,255,.85)
-      );
-      z-index:1;
-    }
+    /* PRODUTOS */
+    .produtos{padding:80px 8%}
+    .produtos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
+    .produto{border:1px solid #000;padding:20px}
 
-    .hero-content{
-      position:relative;
-      z-index:2;
-      text-align:center;
-    }
-
-    .hero-content h2{
-      font-size:42px;
-      margin-bottom:10px;
-      color:#fff;
-      background:#000;
-      padding:14px 26px;
-      border-radius:999px;
-      box-shadow:0 0 25px rgba(0,0,0,.35);
-    }
-
-    .hero-content p{
-      margin-top:12px;
-      font-weight:500;
-      opacity:.85;
-    }
+    /* QUEM SOMOS */
+    .quem-somos{padding:80px 8%;display:flex;justify-content:center}
+    .quem-box{max-width:800px;border:1px solid #000;padding:40px;background:rgba(255,255,255,.7)}
 
     /* WHATSAPP */
-    .whatsapp{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      background:#25d366;
-      color:#000;
-      width:55px;
-      height:55px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:28px;
-      z-index:1000;
-    }
+    .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px}
 
     @media(max-width:768px){
-      header{height:110px;}
-      header .logo{max-height:85px;}
-      .hero-content h2{font-size:30px;}
-      .menu-lateral{display:none;}
+      header{height:110px}
+      header .logo{max-height:100px}
+      .menu-lateral{display:none}
+      .hero-content h2{font-size:30px}
     }
   </style>
 </head>
 
 <body>
 
-<!-- MENU -->
 <div class="menu-lateral">
   <a href="#inicio"><i class="fas fa-home"></i>Início</a>
   <a href="#servicos"><i class="fas fa-tools"></i>Serviços</a>
   <a href="#produtos"><i class="fas fa-box"></i>Produtos</a>
   <a href="#quem"><i class="fas fa-users"></i>Quem Somos</a>
-  <a href="#dev"><i class="fas fa-code"></i>Sites</a>
-  <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
 
-<!-- HEADER -->
 <header id="header">
-  <img src="logobrancavert.png" alt="Formiga Informática" class="logo">
+  <img src="logobrancavert.png" class="logo" alt="Formiga Informática">
 </header>
 
-<!-- HERO -->
 <section class="hero" id="inicio">
   <video autoplay muted loop>
     <source src="video-informatica.mp4" type="video/mp4">
@@ -218,26 +156,24 @@
   </div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/5537999365150" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
+<a class="whatsapp" href="https://wa.me/5537999365150"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-  let lastScroll = 0;
-  const header = document.getElementById('header');
-  const menu = document.querySelector('.menu-lateral');
+let lastScroll=0;
+const header=document.getElementById("header");
+const menu=document.querySelector(".menu-lateral");
 
-  window.addEventListener('scroll', () => {
-    const current = window.scrollY;
-    if(current > lastScroll && current > 100){
-      header.classList.add('hidden');
-      menu.classList.add('hide');
-    } else {
-      header.classList.remove('hidden');
-      menu.classList.remove('hide');
-    }
-    lastScroll = current;
-  });
+window.addEventListener("scroll",()=>{
+  const current=window.scrollY;
+  if(current>lastScroll && current>100){
+    header.classList.add("hidden");
+    menu.classList.add("hide");
+  }else{
+    header.classList.remove("hidden");
+    menu.classList.remove("hide");
+  }
+  lastScroll=current;
+});
 </script>
 
 </body>
