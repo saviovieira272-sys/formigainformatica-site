@@ -10,7 +10,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif; scroll-behavior: smooth;}
-body{background:#fff;color:#000;overflow-x:hidden; padding-top: 100px;} /* Espaço para o header fixo */
+body{background:#fff;color:#000;overflow-x:hidden; padding-top: 100px;}
 
 /* TEXTURA DE FUNDO */
 body::before{
@@ -33,102 +33,78 @@ body::before{
   z-index:1000;
   transition:opacity .5s ease, transform .5s ease
 }
-.menu-lateral.hide{
-  opacity:0;
-  transform:translate(-15px,-50%);
-  pointer-events:none
-}
+.menu-lateral.hide{opacity:0; transform:translate(-15px,-50%); pointer-events:none}
 .menu-lateral a{
-  color:#fff;
-  text-decoration:none;
-  padding:10px 18px;
-  width:fit-content;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  border-radius:30px;
-  font-size:14px;
-  font-weight:700;
-  background:rgba(0,0,0,0.85);
-  backdrop-filter:blur(8px);
-  transition:.3s ease;
+  color:#fff; text-decoration:none; padding:10px 18px; width:fit-content;
+  display:inline-flex; align-items:center; gap:8px; border-radius:30px;
+  font-size:14px; font-weight:700; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); transition:.3s ease;
 }
-.menu-lateral a:hover{
-  padding-right:40px;
-  background:#000;
-  transform:translateX(6px)
-}
-.menu-lateral .impact-link{
-  background: #00bfff;
-  color:#000;
-}
-.menu-lateral .impact-link:hover {
-  box-shadow: 0 0 20px #00bfff;
-}
+.menu-lateral a:hover{padding-right:40px; background:#000; transform:translateX(6px)}
+.menu-lateral .impact-link{background: #00bfff; color:#000;}
+.menu-lateral .impact-link:hover {box-shadow: 0 0 20px #00bfff;}
 
-/* HEADER RETANGULAR PADRÃO */
+/* HEADER RETANGULAR */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: 100px; 
-  background: #000;
-  display: flex;
-  align-items: center; 
-  justify-content: flex-start; /* Alinhamento à esquerda */
-  padding: 0 8%; /* Recuo lateral para não encostar na borda */
-  z-index: 999;
+  height: 100px; background: #000;
+  display: flex; align-items: center; justify-content: flex-start;
+  padding: 0 8%; z-index: 999;
   transition: transform 0.4s ease;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-header.hidden {
-  transform: translateY(-100%);
-}
-header img.logo {
-  height: 215px; /* Tamanho proporcional ao header retangular */
-  width: auto;
-  object-fit: contain;
-  filter: none;
-}
+header.hidden {transform: translateY(-100%);}
+header img.logo {height: 215px; width: auto; filter: none;}
 
 /* HERO */
-.hero{position:relative;height:80vh;display:flex;align-items:center;justify-content:center; overflow:hidden;}
+.hero{position:relative;height:70vh;display:flex;align-items:center;justify-content:center; overflow:hidden;}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(255,255,255,0.4), #fff);z-index:1}
 .hero-content{position:relative;z-index:2;text-align:center;}
 .hero-content h2{font-size:48px;color:#fff;background:#000;padding:15px 40px;border-radius:8px;}
-.hero-content p{margin-top:15px; font-weight:600; font-size:1.4rem;}
 
-/* SERVIÇOS */
-.servicos{padding:80px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;justify-items:center;}
-.servico{border:1px solid #000;padding:35px;text-align:center;transition:.4s;width:100%;max-width:280px;background:#fff;}
-.servico:hover{transform:translateY(-10px);box-shadow:0 15px 30px rgba(0,0,0,0.1);}
-.servico i{font-size:45px;margin-bottom:15px;}
-.servico h3{margin-bottom:10px;}
-.servico a{color:#000;text-decoration:none;font-weight:700; border-bottom: 2px solid #00bfff;}
+/* QUEM SOMOS */
+.quem-somos{padding:80px 8%; display:flex; justify-content:center;}
+.quem-box{max-width:900px; background:#fff; border:2px solid #000; padding:50px; line-height:1.8; text-align:center; box-shadow: 15px 15px 0px #000;}
+.quem-box h2{margin-bottom:25px; font-size:2.2rem; text-transform:uppercase; letter-spacing:1px;}
+.quem-box p{font-size:1.1rem; margin-bottom:15px; color:#333;}
 
-/* PRODUTOS */
-.produtos{padding:80px 8%; background: #fdfdfd;}
-.produtos h2{text-align:center;margin-bottom:50px; font-size: 2.5rem;}
-.produtos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-.produto{border:1px solid #000;padding:30px;transition:.3s;background:#fff;text-align:center;}
-.produto:hover{transform:scale(1.03); border-color: #00bfff;}
+/* SERVIÇOS - 12 CARDS CLICÁVEIS */
+.servicos-titulo{text-align:center; padding-top:40px; font-size:2.5rem;}
+.servicos{padding:40px 8% 80px; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; justify-items:center;}
+.servico-link{text-decoration: none; color: inherit; width: 100%;}
+.servico{border:2px solid #000; padding:30px 15px; text-align:center; transition:.4s; background:#fff; height: 100%; border-radius: 4px; display:flex; flex-direction:column; align-items:center; justify-content:center;}
+.servico:hover{transform:translateY(-5px); background: #000; color: #fff; box-shadow:0 10px 20px rgba(0,0,0,0.15);}
+.servico i{font-size:35px; margin-bottom:15px; color:#00bfff;}
+.servico:hover i{color:#fff;}
+.servico h3{font-size: 1rem; font-weight: 700; text-transform: uppercase;}
 
-/* SEÇÕES ESPECIAIS */
-.section-full{padding:80px 8%; border-top: 1px solid #000; display: flex; flex-direction: column; align-items: center; text-align: center;}
-.bg-blue{background: #00bfff; color: #000; border: none;}
-.btn-cta{display:inline-block; margin-top:25px; padding:15px 45px; background:#000; color:#fff; text-decoration:none; font-weight:700; border-radius:4px; transition: .3s;}
-.btn-cta:hover{transform: scale(1.05); opacity: 0.9;}
+/* PRODUTOS - CARDS GRANDES */
+.produtos{padding:80px 8%; background: #fdfdfd; border-top:1px solid #000;}
+.produtos h2{text-align:center; margin-bottom:50px; font-size: 2.5rem;}
+.produtos-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:30px}
+.produto{border:2px solid #000; padding:60px 30px; transition:.3s; background:#fff; text-align:center; border-radius: 0px;}
+.produto:hover{background: #000; color: #fff; border-color: #00bfff; transform: scale(1.02);}
+.produto h3{font-size: 1.6rem; margin-bottom: 10px; text-transform: uppercase;}
 
-/* WHATSAPP */
-.whatsapp{position:fixed;right:25px;bottom:25px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;z-index:1000;box-shadow:0 10px 20px rgba(0,0,0,0.2);}
+/* IMPACT SYSTEM - 3 CARDS AZUIS */
+.impact-container{padding:80px 8%; background: #fff; text-align: center; border-top: 1px solid #000;}
+.impact-grid{display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px;}
+.impact-card{background: #00bfff; color: #000; padding: 40px; border-radius: 8px; transition: .3s; border:2px solid #000;}
+.impact-card:hover{transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,191,255,0.4);}
+.impact-card i{font-size: 40px; margin-bottom: 15px;}
 
-footer{padding:60px;background:#000;color:#fff;text-align:center}
+/* WHATSAPP FLUTUANTE */
+.whatsapp-float{position:fixed;right:25px;bottom:25px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;z-index:1000;box-shadow:0 10px 20px rgba(0,0,0,0.2);}
+
+footer{padding:60px; background:#000; color:#fff; text-align:center}
 
 @media(max-width:768px){
   header{height:80px; padding: 0 5%;}
-  header img.logo{height:100px;}
+  header img.logo{height:50px;}
   .hero-content h2{font-size:28px;}
   .menu-lateral{display:none}
+  .quem-box{padding:30px; margin:0 10px;}
 }
 </style>
 </head>
@@ -137,9 +113,9 @@ footer{padding:60px;background:#000;color:#fff;text-align:center}
 
 <div class="menu-lateral" id="menuLateral">
   <a href="#inicio"><i class="fas fa-home"></i>Início</a>
+  <a href="#quem"><i class="fas fa-users"></i>Quem Somos</a>
   <a href="#servicos"><i class="fas fa-tools"></i>Serviços</a>
   <a href="#produtos"><i class="fas fa-box"></i>Produtos</a>
-  <a href="#sites"><i class="fas fa-code"></i>Sites</a>
   <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
 
@@ -153,40 +129,79 @@ footer{padding:60px;background:#000;color:#fff;text-align:center}
   </video>
   <div class="hero-content">
     <h2>Tecnologia que resolve</h2>
-    <p>Sua parceira em soluções digitais há 18 anos</p>
   </div>
 </section>
 
-<section id="servicos" class="servicos">
-  <div class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3><a href="https://wa.me/5537999365150">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-tools"></i><h3>Manutenção</h3><a href="https://wa.me/5537999365150">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-microchip"></i><h3>Reparo Placas</h3><a href="https://wa.me/5537999365150">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-network-wired"></i><h3>Redes</h3><a href="https://wa.me/5537999365150">WhatsApp</a></div>
+<section id="quem" class="quem-somos">
+  <div class="quem-box">
+    <h2>Quem Somos</h2>
+    <p>Com 18 anos de experiência em informática e 9 anos de atuação com loja física, somos especializados em serviços em informática em geral, oferecendo soluções completas em tecnologia para nossos clientes.</p>
+    <p>Também trabalhamos com venda de produtos, criação de sites e sistemas de gestão com emissão de notas fiscais para empresas, ajudando negócios a se organizarem e crescerem com tecnologia confiável e atualizada.</p>
+    <p><strong>Nosso compromisso é com a transparência, confiança, qualidade e preço justo, garantindo um atendimento honesto e focado na real necessidade de cada cliente.</strong></p>
+  </div>
+</section>
+
+<h2 id="servicos" class="servicos-titulo">Nossos Serviços</h2>
+<section class="servicos">
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3></div>
+  </a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fas fa-house-laptop"></i><h3>Visita técnica</h3></div>
+  </a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fas fa-download"></i><h3>Instalação de programas</h3></div>
+  </a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fas fa-laptop-medical"></i><h3>Conserto de computadores</h3></div>
+  </a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fas fa-hammer"></i><h3>Reparo de carcaças notebook</h3></div>
+  </a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fas fa-microchip"></i><h3>Reparo de placas notebook</h3></div>
+  </a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fas fa-shopping-cart"></i><h3>Venda de computadores</h3></div>
+  </a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3></div>
+  </a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fas fa-print"></i><h3>Tintas e Toner</h3></div>
+  </a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fas fa-plug"></i><h3>Eletrônicos</h3></div>
+  </a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fas fa-code"></i><h3>Criação de sites</h3></div>
+  </a>
+  <a href="https://wa.me/5537999365150" target="_blank" class="servico-link">
+    <div class="servico"><i class="fas fa-file-invoice"></i><h3>Sistemas de Gestão</h3></div>
+  </a>
 </section>
 
 <section id="produtos" class="produtos">
-  <h2>Produtos</h2>
+  <h2>Produtos em Destaque</h2>
   <div class="produtos-grid">
-    <div class="produto"><h3>Computadores</h3><p>Montagem sob medida</p></div>
-    <div class="produto"><h3>Periféricos</h3><p>As melhores marcas</p></div>
-    <div class="produto"><h3>Tintas e Toners</h3><p>Suprimentos diversos</p></div>
+    <div class="produto"><h3>Venda de Computadores</h3><p>Equipamentos novos e seminovos com garantia.</p></div>
+    <div class="produto"><h3>Linha PC Gamer</h3><p>Montagem personalizada e componentes de alta performance.</p></div>
+    <div class="produto"><h3>Suprimentos e Eletrônicos</h3><p>Acessórios, periféricos, tintas e toners para sua impressora.</p></div>
   </div>
 </section>
 
-<section id="sites" class="section-full">
-  <h2>Criação de Sites</h2>
-  <p>Sites institucionais e Lojas Virtuais profissionais.</p>
-  <a href="https://wa.me/5537999365150" class="btn-cta">SOLICITAR ORÇAMENTO</a>
+<section id="impact" class="impact-container">
+  <img src="impactweb.png" alt="Impact System" style="height: 60px; margin-bottom: 10px;">
+  <h2>Sistemas de Gestão e Fiscal</h2>
+  <div class="impact-grid">
+    <div class="impact-card"><i class="fas fa-file-signature"></i><h3>Emissão Fiscal</h3><p>NF-e, NFC-e e total conformidade com a lei.</p></div>
+    <div class="impact-card"><i class="fas fa-store"></i><h3>Controle Comercial</h3><p>Gestão de vendas, estoque e clientes.</p></div>
+    <div class="impact-card"><i class="fas fa-coins"></i><h3>Gestão Financeira</h3><p>Controle de caixa, contas a pagar e receber.</p></div>
+  </div>
+  <a href="https://wa.me/5537999365150" target="_blank" class="btn-cta" style="margin-top:40px; background:#000; color:#fff; padding:15px 40px; text-decoration:none; font-weight:700; border-radius:4px; display:inline-block;">SOLICITAR DEMONSTRAÇÃO</a>
 </section>
 
-<section id="impact" class="section-full bg-blue">
-  <img src="impactweb.png" alt="Impact System" style="height: 50px; margin-bottom: 20px;">
-  <h2>Impact System</h2>
-  <p>Software de gestão completo para o seu comércio.</p>
-  <a href="https://wa.me/5537999365150" class="btn-cta" style="background:#fff; color:#000;">SABER MAIS</a>
-</section>
-
-<a class="whatsapp" href="https://wa.me/5537999365150" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a class="whatsapp-float" href="https://wa.me/5537999365150" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <footer>
   <p>Rua Quintino Bocaiúva, 105 – Centro – Formiga/MG</p>
