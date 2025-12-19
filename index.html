@@ -19,15 +19,17 @@ body::before{
   opacity:.08; z-index:-1;
 }
 
-/* ANIMAÇÃO DE SURGIMENTO REFINADA */
+/* ANIMAÇÃO DE SURGIMENTO (CORRIGIDA) */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  visibility: hidden; /* Evita que o item ocupe espaço invisível antes da animação */
 }
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+  visibility: visible;
 }
 
 /* MENU LATERAL */
@@ -47,12 +49,11 @@ body::before{
 /* IMPACT LINK COM BRILHO AZUL */
 .menu-lateral .impact-link{
   background: #00bfff; color:#000;
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.6);
   animation: glowBlue 2s infinite alternate;
 }
 @keyframes glowBlue {
-  from { box-shadow: 0 0 10px rgba(0, 191, 255, 0.4); }
-  to { box-shadow: 0 0 25px rgba(0, 191, 255, 0.9); }
+  from { box-shadow: 0 0 5px rgba(0, 191, 255, 0.4); }
+  to { box-shadow: 0 0 20px rgba(0, 191, 255, 1); }
 }
 
 /* HEADER */
@@ -67,7 +68,7 @@ header img.logo {height: 80px; width: auto;}
 /* HERO */
 .hero{
   position:relative; height: 85vh; display:flex; align-items:center;
-  justify-content:center; overflow:hidden; background: transparent;
+  justify-content:center; overflow:hidden; background: #fff;
 }
 .hero video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index: 1;}
 .hero-content{position:relative; z-index:2; text-align:center;}
@@ -91,9 +92,12 @@ header img.logo {height: 80px; width: auto;}
   border-radius: 15px; display:flex; flex-direction:column; align-items:center;
 }
 .servico:hover{transform: translateY(-10px); background: #000; color: #fff; border-color: #000;}
-.servico i{font-size:38px; margin-bottom:20px; color:#000;}
+.servico i{font-size:38px; margin-bottom:20px; color:#000; transition: .4s;}
 .servico:hover i{color:#00bfff;}
 .servico h3{font-size: 0.9rem; font-weight: 700; text-transform: uppercase;}
+
+/* Caso sobre um card na última linha, ele centraliza */
+.servicos > a:last-child:nth-child(3n-2) { grid-column: 1 / -1; max-width: 350px; margin: 0 auto; }
 
 /* PRODUTOS E SITES */
 .padrao-secao{padding:120px 8%; border-top:1px solid #f5f5f5;}
@@ -102,7 +106,6 @@ header img.logo {height: 80px; width: auto;}
 .card-padrao{border: 1px solid #eee; padding:70px 40px; transition:.4s; background:#fff; text-align:center; border-radius: 20px;}
 .card-padrao:hover{background: #000; color: #fff; transform: translateY(-8px);}
 
-/* BOTÃO CTA WHATS SITES */
 .btn-sites {
   display: inline-block; margin-top: 30px; padding: 15px 35px;
   background: #000; color: #fff; text-decoration: none;
@@ -218,35 +221,43 @@ footer{padding:100px 0; background:#000; color:#fff; text-align:center;}
 </footer>
 
 <script>
-// Transição suave com Stagger
+// Transição suave Stagger (Corrigida para evitar sumiço)
 function reveal() {
-  var reveals = document.querySelectorAll(".reveal");
-  for (var i = 0; i < reveals.length; i++) {
-    var windowHeight = window.innerHeight;
-    var elementTop = reveals[i].getBoundingClientRect().top;
-    var elementVisible = 100;
-    if (elementTop < windowHeight - elementVisible) {
-      // Pequeno atraso baseado na ordem para um efeito mais fluido
-      let delay = (i % 3) * 100; 
-      setTimeout(() => {
-        reveals[i].classList.add("active");
-      }, delay);
-    }
-  }
-}
-window.addEventListener("scroll", reveal);
+  const reveals = document.querySelectorAll(".reveal");
+  const windowHeight = window.innerHeight;
 
-// Header e Menu
+  reveals.forEach((el, index) => {
+    const elementTop = el.getBoundingClientRect().top;
+    const elementVisible = 100;
+
+    if (elementTop < windowHeight - elementVisible) {
+      // Adiciona a classe active com um leve delay para o efeito cascata
+      setTimeout(() => {
+        el.classList.add("active");
+      }, (index % 3) * 100); 
+    }
+  });
+}
+
+// Eventos de scroll e carregamento
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal); // Garante que itens visíveis no topo apareçam
+
+// Header e Menu Logic
 let lastScroll = 0;
 const header = document.getElementById("header");
 const menu = document.getElementById("menuLateral");
 window.addEventListener("scroll", () => {
   const current = window.scrollY;
-  if (current > lastScroll && current > 120) { header.classList.add("hidden"); menu.classList.add("hide"); }
-  else { header.classList.remove("hidden"); menu.classList.remove("hide"); }
+  if (current > lastScroll && current > 120) { 
+    header.classList.add("hidden"); 
+    menu.classList.add("hide"); 
+  } else { 
+    header.classList.remove("hidden"); 
+    menu.classList.remove("hide"); 
+  }
   lastScroll = current;
 });
-reveal();
 </script>
 
 </body>
