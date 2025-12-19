@@ -49,7 +49,7 @@ body::before{
   border-radius:30px;
   font-size:14px;
   font-weight:700;
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.82);
   backdrop-filter:blur(8px);
   transition:.3s ease;
 }
@@ -58,91 +58,85 @@ body::before{
   background:#000;
   transform:translateX(6px)
 }
-/* IMPACT SYSTEM - BRILHO AZUL NO MENU */
 .menu-lateral .impact-link{
   background: #00bfff;
   color:#000;
 }
 .menu-lateral .impact-link:hover {
   box-shadow: 0 0 25px #00bfff;
-  transform: scale(1.05) translateX(6px);
 }
 
-/* HEADER - MEIA LUA ESTREITA E LOGO AMPLIADA */
+/* HEADER - EFEITO ONDA (FINO NAS PONTAS, LONGO NO MEIO) */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: 200px; 
+  height: 240px; /* Aumentado para dar espaço ao "comprimento" no meio */
   background: #000;
   display: flex;
-  align-items: center; 
+  align-items: flex-start; /* Alinha a logo mais ao topo */
   justify-content: center;
   z-index: 999;
-  /* Clip-path ajustado: 40% de largura cria uma meia-lua estreita e elegante */
-  clip-path: ellipse(40% 100% at 50% 0%); 
+  /* Desenha a forma: começa fino (20px) nas pontas e desce até 240px no centro */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 25px, 75% 35px, 50% 100%, 25% 35px, 0% 25px);
+  /* Usei uma versão simplificada de polígono/curva para garantir a compatibilidade */
+  clip-path: path("M0,0 L1920,0 L1920,40 Q960,350 0,40 Z");
   transition: transform 0.4s ease-in-out;
 }
+
+/* Ajuste específico para o clip-path path funcionar em telas diferentes */
+@media (min-width: 0px) {
+  header {
+    clip-path: ellipse(80% 100% at 50% 0%); /* Formato de gota/meia lua alongada */
+  }
+}
+
 header.hidden {
   transform: translateY(-100%);
 }
 header img.logo {
-  height: 175px; /* LOGO BEM GRANDE */
+  height: 160px; /* Logo grande */
   width: auto;
   object-fit: contain;
-  margin-top: -15px;
-  filter: none !important; /* SEM BRILHO BRANCO */
+  margin-top: 15px;
+  filter: none !important;
 }
 
 /* HERO */
-.hero{position:relative;height:95vh;display:flex;align-items:center;justify-content:center; overflow:hidden;}
+.hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center; overflow:hidden;}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, transparent, #fff);z-index:1}
-.hero-content{position:relative;z-index:2;text-align:center; padding-top: 60px;}
-.hero-content h2{font-size:45px;color:#fff;background:#000;padding:15px 35px;border-radius:999px;box-shadow: 0 10px 30px rgba(0,0,0,0.3);}
-.hero-content p{margin-top:15px; font-weight:600; font-size:1.3rem; color:#222;}
+.hero-content{position:relative;z-index:2;text-align:center; padding-top: 120px;}
+.hero-content h2{font-size:42px;color:#fff;background:#000;padding:15px 30px;border-radius:999px;}
 
 /* SERVIÇOS */
-.servicos{padding:80px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;justify-items:center;}
-.servico{border:1px solid #000;padding:30px;text-align:center;transition:.4s;width:230px;background:#fff; border-radius: 12px;}
-.servico:hover{transform:translateY(-10px);box-shadow:0 15px 35px rgba(0,0,0,0.15);}
-.servico i{font-size:50px;margin-bottom:15px; color:#000;}
-.servico a{color:#000;text-decoration:none;display:block;margin-top:15px;font-weight:700; border-top:1px solid #eee; padding-top:10px;}
+.servicos{padding:100px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;justify-items:center;}
+.servico{border:1px solid #000;padding:30px;text-align:center;transition:.4s;width:240px;background:#fff; border-radius: 12px;}
+.servico:hover{transform:translateY(-10px);box-shadow:0 15px 35px rgba(0,0,0,0.2);}
+.servico i{font-size:45px;margin-bottom:15px;}
+.servico a{color:#000;text-decoration:none;display:block;margin-top:12px;font-weight:700;}
 
 /* PRODUTOS */
 .produtos{padding:80px 8%}
-.produtos h2{text-align:center;margin-bottom:50px; font-size:2rem;}
-.produtos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.produtos h2{text-align:center;margin-bottom:40px;}
+.produtos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
 .produto{border:1px solid #000;padding:30px;transition:.3s;background:#fff;text-align:center; border-radius: 15px;}
-.produto:hover{transform:scale(1.05); box-shadow:0 10px 20px rgba(0,0,0,0.1);}
+.produto:hover{transform:scale(1.05);}
 
-/* QUEM SOMOS */
-.quem-somos{padding:100px 8%;display:flex;justify-content:center; background:#f9f9f9;}
-.quem-box{max-width:850px;background:#fff;border:1px solid #000;padding:50px;line-height:1.8;text-align:center; box-shadow: 12px 12px 0px #000;}
+/* SITES E IMPACT */
+.especial-section{margin:40px 8%; border:1px solid #000; padding:60px; text-align:center; border-radius:20px; transition:.3s;}
+.especial-section:hover{box-shadow: 0 10px 30px rgba(0,0,0,0.1);}
+.bg-impact{background:#00bfff; border:none;}
 
-/* DESENVOLVIMENTO SITES */
-.dev{padding:80px 8%;border-top:1px solid #000;display:flex;flex-direction:column;align-items:center;}
-.dev-grid{display:flex;gap:25px;flex-wrap:wrap;justify-content:center;margin-top:40px}
-.dev-item{border:1px solid #000;padding:35px;width:300px;text-align:center;background:#fff; border-radius:10px; transition:.3s;}
-.dev-item:hover{background:#000; color:#fff;}
-.btn-dev{display:inline-block;margin-top:40px;padding:18px 45px;background:#000;color:#fff;border-radius:50px;text-decoration:none;font-weight:700; transition:.3s;}
-.btn-dev:hover{transform:scale(1.1); box-shadow:0 10px 20px rgba(0,0,0,0.3);}
-
-/* IMPACT SYSTEM */
-.impact{padding:80px 8%;border-top:1px solid #000;display:flex;flex-direction:column;align-items:center; background:#fff;}
-.impact h2{margin-bottom:40px;}
-.impact-items{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;width:100%}
-.impact-item{flex:1 1 300px;background:#00bfff;color:#000;padding:40px;border-radius:20px;text-align:center; box-shadow:0 10px 25px rgba(0,191,255,0.3); transition:.3s;}
-.impact-item:hover{transform:translateY(-10px); box-shadow:0 15px 35px rgba(0,191,255,0.5);}
+.btn-acao{display:inline-block; margin-top:25px; padding:15px 40px; background:#000; color:#fff; text-decoration:none; font-weight:700; border-radius:50px;}
 
 /* WHATSAPP */
-.whatsapp{position:fixed;right:25px;bottom:25px;background:#25d366;color:#fff;width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:35px;z-index:1000;box-shadow:0 6px 20px rgba(0,0,0,0.3); transition:.3s;}
-.whatsapp:hover{transform:scale(1.15);}
+.whatsapp{position:fixed;right:25px;bottom:25px;background:#25d366;color:#fff;width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:35px;z-index:1000;box-shadow:0 10px 20px rgba(0,0,0,0.2);}
 
 footer{padding:60px;background:#000;color:#fff;text-align:center}
 
 @media(max-width:768px){
-  header{clip-path: ellipse(90% 120px at 50% 0%); height:140px;}
-  header img.logo{height:100px; margin-top:0;}
+  header{height:150px; clip-path: ellipse(120% 100% at 50% 0%);}
+  header img.logo{height:100px;}
   .menu-lateral{display:none}
 }
 </style>
@@ -154,8 +148,7 @@ footer{padding:60px;background:#000;color:#fff;text-align:center}
   <a href="#inicio"><i class="fas fa-home"></i>Início</a>
   <a href="#servicos"><i class="fas fa-tools"></i>Serviços</a>
   <a href="#produtos"><i class="fas fa-box"></i>Produtos</a>
-  <a href="#quem"><i class="fas fa-users"></i>Quem Somos</a>
-  <a href="#dev"><i class="fas fa-code"></i>Sites</a>
+  <a href="#sites"><i class="fas fa-code"></i>Sites</a>
   <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
 
@@ -169,49 +162,40 @@ footer{padding:60px;background:#000;color:#fff;text-align:center}
   </video>
   <div class="hero-content">
     <h2>Tecnologia que resolve</h2>
-    <p>Soluções completas em informática para Formiga e região</p>
+    <p>Soluções completas para você e sua empresa</p>
   </div>
 </section>
 
 <section id="servicos" class="servicos">
-  <div class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-house-laptop"></i><h3>Visita Técnica</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-download"></i><h3>Programas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-tools"></i><h3>Manutenção</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
+  <div class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3><a href="https://wa.me/5537999365150">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-house-laptop"></i><h3>Visita Técnica</h3><a href="https://wa.me/5537999365150">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-download"></i><h3>Programas</h3><a href="https://wa.me/5537999365150">WhatsApp</a></div>
+  <div class="servico"><i class="fas fa-tools"></i><h3>Manutenção</h3><a href="https://wa.me/5537999365150">WhatsApp</a></div>
 </section>
 
 <section id="produtos" class="produtos">
-  <h2>Produtos em Destaque</h2>
+  <h2 style="text-align:center; margin-bottom:40px;">Produtos em Destaque</h2>
   <div class="produtos-grid">
-    <div class="produto"><h3>Computadores</h3><p>Workstations e PCs Gamers</p></div>
-    <div class="produto"><h3>Periféricos</h3><p>Mouses, Teclados e Headsets</p></div>
-    <div class="produto"><h3>Infraestrutura</h3><p>Roteadores e Cabeamento</p></div>
+    <div class="produto"><h3>Computadores</h3><p>Montagem exclusiva</p></div>
+    <div class="produto"><h3>Acessórios</h3><p>Periféricos Gamers</p></div>
+    <div class="produto"><h3>Eletrônicos</h3><p>Variedade completa</p></div>
   </div>
 </section>
 
-<section id="quem" class="quem-somos">
-  <div class="quem-box">
-    <h2>Nossa História</h2>
-    <p>Há <strong>18 anos</strong> transformando a tecnologia em solução. Com sede própria em Formiga/MG há 9 anos, oferecemos suporte especializado para pessoas e empresas.</p>
+<section id="sites">
+  <div class="especial-section">
+    <h2>Criação de Sites</h2>
+    <p>Sites institucionais, Lojas Virtuais e Landing Pages.</p>
+    <a href="https://wa.me/5537999365150" class="btn-acao">ORÇAMENTO</a>
   </div>
 </section>
 
-<section id="dev" class="dev">
-  <h2>Desenvolvimento Web</h2>
-  <div class="dev-grid">
-    <div class="dev-item"><h4>Sites Institucionais</h4><p>Sua marca no mundo digital.</p></div>
-    <div class="dev-item"><h4>E-commerce</h4><p>Venda online com segurança.</p></div>
-    <div class="dev-item"><h4>Sistemas</h4><p>Automação de processos.</p></div>
-  </div>
-  <a href="https://wa.me/5537999365150" class="btn-dev" target="_blank">Solicitar Orçamento</a>
-</section>
-
-<section id="impact" class="impact">
-  <img src="impactweb.png" alt="Impact System" style="height: 60px; margin-bottom: 20px;">
-  <div class="impact-items">
-    <div class="impact-item"><h4>Emissão Fiscal</h4><p>NF-e, NFC-e e MDF-e.</p></div>
-    <div class="impact-item"><h4>Estoque</h4><p>Gestão de inventário em tempo real.</p></div>
-    <div class="impact-item"><h4>Financeiro</h4><p>Contas e fluxo de caixa completo.</p></div>
+<section id="impact">
+  <div class="especial-section bg-impact">
+    <img src="impactweb.png" alt="Impact System" style="height: 50px; margin-bottom: 20px;">
+    <h2>Impact System</h2>
+    <p>Gestão Fiscal, Estoque e Financeiro para sua empresa.</p>
+    <a href="https://wa.me/5537999365150" class="btn-acao">SABER MAIS</a>
   </div>
 </section>
 
@@ -219,7 +203,7 @@ footer{padding:60px;background:#000;color:#fff;text-align:center}
 
 <footer>
   <p>Rua Quintino Bocaiúva, 105 – Centro – Formiga/MG</p>
-  <p style="margin-top:15px; opacity:0.6; font-size:13px;">© 2025 Formiga Informática - Todos os direitos reservados.</p>
+  <p style="margin-top:10px; opacity:0.5;">© 2025 Formiga Informática</p>
 </footer>
 
 <script>
