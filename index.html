@@ -156,12 +156,16 @@
     /* WHATSAPP */
     .whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:#000;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:1000}
 
-    @media(max-width:768px){header{height:110px}header img{max-height:100px}.hero-content h2{font-size:30px}.menu-lateral{display:none}}
+    @media(max-width:768px){
+      header{height:110px}
+      header img{max-height:100px}
+      .hero-content h2{font-size:30px}
+      .menu-lateral{display:none}
+    }
   </style>
 </head>
 <body>
 
-<!-- MENU LATERAL -->
 <div class="menu-lateral">
   <a href="#inicio"><i class="fas fa-home"></i>Início</a>
   <a href="#servicos"><i class="fas fa-tools"></i>Serviços</a>
@@ -170,91 +174,33 @@
   <a href="#dev"><i class="fas fa-code"></i>Sites</a>
   <a href="#impact" class="impact-link"><i class="fas fa-server"></i>Impact System</a>
 </div>
+
 <header id="header">
   <img src="logobrancavert.png" alt="Formiga Informática" style="height:60px;">
 </header>
-<section class="hero">
-  <video autoplay muted loop><source src="video-informatica.mp4" type="video/mp4"></video>
-  <div class="hero-content"><h2>Tecnologia que resolve</h2><p>Soluções completas em informática</p></div>
-</section>
 
-<!-- SERVIÇOS -->
-<section id="servicos" class="servicos">
-  <div class="servico"><i class="fab fa-windows"></i><h3>Formatações</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-house-laptop"></i><h3>Visita Técnica</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-download"></i><h3>Instalação de Programas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-tools"></i><h3>Conserto de Computadores</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-laptop"></i><h3>Reparo de Carcaças</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-microchip"></i><h3>Reparo de Placas</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-store"></i><h3>Venda de Computadores</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-gamepad"></i><h3>PC Gamer</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-print"></i><h3>Tintas e Toner</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico"><i class="fas fa-plug"></i><h3>Eletrônicos</h3><a href="https://wa.me/5537999365150" target="_blank">WhatsApp</a></div>
-  <div class="servico criacao-sites"><i class="fas fa-globe"></i><h3>Criação de Sites</h3></div>
-</section>
-
-<!-- PRODUTOS -->
-<section id="produtos" class="produtos">
-  <h2>Produtos em Destaque</h2>
-  <div class="produtos-grid">
-    <div class="produto"><img><p>Computadores</p></div>
-    <div class="produto"><img><p>Acessórios</p></div>
-    <div class="produto"><img><p>Eletrônicos</p></div>
+<section class="hero" id="inicio">
+  <video autoplay muted loop>
+    <source src="video-informatica.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h2>Tecnologia que resolve</h2>
+    <p>Soluções completas em informática</p>
   </div>
 </section>
 
-<!-- QUEM SOMOS -->
-<section id="quem" class="quem-somos">
-  <div class="quem-box">
-    <h2>Quem Somos</h2>
-    <p>Com 18 anos de experiência em informática e 9 anos de atuação com loja física, somos especializados em serviços em informática em geral.</p>
-    <p>Atuamos também com venda de produtos, criação de sites e sistemas de gestão com emissão de notas fiscais para empresas.</p>
-    <p>Nosso compromisso é com transparência, confiança, qualidade e preço justo.</p>
-  </div>
-</section>
-
-<!-- DESENVOLVIMENTO DE SITES -->
-<section id="dev" class="dev">
-  <h2>Criação de Sites e Sistemas</h2>
-  <div class="dev-grid">
-    <div class="dev-item">Sites Institucionais</div>
-    <div class="dev-item">Lojas Virtuais</div>
-    <div class="dev-item">Sistemas Empresariais</div>
-  </div>
-  <a href="https://wa.me/5537999365150" class="btn-dev">Solicitar Orçamento</a>
-</section>
-
-<!-- IMPACT SYSTEM -->
-<section id="impact" class="impact">
-  <img src="impactweb.png" alt="Impact System" style="height:60px; margin-bottom:20px;">
-  <div class="impact-box">
-    <div class="impact-items">
-      <div class="impact-item"><h4>Fiscal</h4><p>Controle de impostos, notas fiscais e obrigações legais.</p></div>
-      <div class="impact-item"><h4>Estoque</h4><p>Gerencie entradas, saídas e inventário de produtos de forma eficiente.</p></div>
-      <div class="impact-item"><h4>Financeiro</h4><p>Controle de contas a pagar/receber, fluxo de caixa e relatórios financeiros.</p></div>
-    </div>
-    <div style="text-align:center; margin-top:30px;">
-      <a href="https://wa.me/5537999365150" class="btn-dev">Quero Saber Mais</a>
-    </div>
-  </div>
-</section>
-
-<a class="whatsapp" href="https://wa.me/5537999365150" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-<footer>
-  <p>Rua Quintino Bocaiúva, 105 – Centro – Formiga/MG</p>
-  <p>Formiga Informática • Tecnologia que trabalha a favor do seu dia a dia</p>
-</footer>
+<a class="whatsapp" href="https://wa.me/5537999365150" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 <script>
-  // Cabeçalho e menu interativos
   let lastScroll = 0;
   const header = document.getElementById('header');
   const menu = document.querySelector('.menu-lateral');
 
-  window.addEventListener('scroll',()=>{
+  window.addEventListener('scroll', () => {
     const current = window.scrollY;
-    if(current > lastScroll && current > 100){
+    if (current > lastScroll && current > 100) {
       header.classList.add('hidden');
       menu.classList.add('hide');
     } else {
